@@ -1,0 +1,92 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  CHAPTER 2: PRELIMINARIES & FOUNDATIONS (فصل دوم: مفاهیم اولیه) (chapters/chapter2_preliminaries.tex)
+% ==============================================================================
+%  This chapter establishes the mathematical, theoretical, and algorithmic
+%  foundations required for the thesis.
+% ==============================================================================
+
+\chapter{مفاهیم پایه}\label{chap:chapter2_preliminaries}
+
+فصل دوم پایان‌نامه عهده‌دار ارائه‌ی مبانی نظری، تعاریف رسمی، اصول اولیه و نمادگذاری‌های استانداردی است که بخش‌های بعدی بر پایه‌ی آن‌ها بنا می‌شوند. هدف این فصل، تجهیز خواننده به پیش‌نیازهای لازم برای درک فصول روش‌شناسی و ارزیابی تجربی است، بدون آنکه وارد بررسی تحلیلی پیشینه‌ی مقالات (مختص فصل~\ref{chap:chapter3_literature}) یا ارائه‌ی روش پیشنهادی (مختص فصل~\ref{chap:chapter4_methodology}) شود. در نگارش این فصل، ایجاز و ارتباط مستقیم با موضوع اصلی باید رعایت گردد و تنها به مفاهیمی پرداخته شود که در فصول بعدی کاربرد دارند.
+
+در این قالب، فصل دوم به عنوان مرجع اصلی برای معرفی و نمایش قابلیت‌های پایه‌ای حروف‌چینی در نظر گرفته شده است. در ادامه، شیوه‌ی تنظیم جدول‌های استاندارد، فرمول‌های چندخطی، محیط‌های قضیه و لم، و رسم مستقیم نمودارهای برداری با بسته \lr{TikZ} تشریح می‌گردد.
+
+
+\section{نمادگذاری‌های استاندارد و جدول‌ها}\label{sec:2-1}
+
+یکپارچگی نمادگذاری‌های ریاضی در سراسر پایان‌نامه اهمیت بنیادین دارد. به‌طور معمول، متغیرهای اسکالر با حروف کوچک و کج ($x, y$)، بردارها با حروف کوچک ضخیم ($\mathbf{x}, \mathbf{y}$)، ماتریس‌ها با حروف بزرگ ضخیم ($\mathbf{X}, \mathbf{W}$) و مجموعه‌ها با حروف قلم‌باز یا خوش‌نویسی ($\mathcal{S}, \mathbb{R}$) مشخص می‌شوند.
+
+برای تنظیم جدول‌ها در این قالب از بسته \lr{tabularx} همراه با خطوط افقی بسته \lr{booktabs} استفاده شده است. ستون \lr{X} پهنای جدول را به‌طور خودکار با عرض متن هماهنگ می‌سازد و خطوط \code{{\textbackslash}toprule}، \code{{\textbackslash}midrule} و \code{{\textbackslash}bottomrule} ساختاری تمیز و حرفه‌ای بدون نیاز به خطوط عمودی پدید می‌آورند. در جدول~\ref{tab:chap2_notations}، قراردادهای نمادگذاری رایج خلاصه شده است.
+
+\begin{table}[!ht]
+    \centering
+    \small
+    \setlength{\aboverulesep}{0pt}
+    \setlength{\belowrulesep}{0pt}
+    \caption{نمادگذاری‌های ریاضی و قراردادهای نمادین}\label{tab:chap2_notations}
+    \vspace{0.2cm}
+    \begin{tabularx}{\textwidth}{l p{4.5cm} X}
+        \toprule
+        \textbf{نماد ریاضی} & \textbf{مفهوم} & \textbf{توضیحات و ابعاد} \\
+        \midrule
+        $x \in \mathbb{R}$ & متغیر اسکالر حقیقی & مقادیر پیوسته یک‌بعدی \\
+        $\mathbf{x} = {[x_1, \dots, x_d]}^\top$ & بردار ویژگی‌ها & بردار ستونی در فضای اقلیدسی $\mathbb{R}^d$ \\
+        $\mathbf{X} \in \mathbb{R}^{N \times d}$ & ماتریس داده‌ها & ماتریس با $N$ ردیف و $d$ ستون \\
+        $\|\mathbf{x}\|_2 = \sqrt{\sum_{i=1}^d x_i^2}$ & نُرم اقلیدسی & اندازه‌ی طول بردار در فضای ضرب داخلی \\
+        $\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u}^\top \mathbf{v}$ & ضرب داخلی & تصویرسازی هندسی دو بردار بر یکدیگر \\
+        $\mathbb{E}[\cdot]$ & امید ریاضی & میانگین آماری تحت توزیع مفروض \\
+        $f(\mathbf{x}; \theta)$ & تابع مدل & نگاشت سامانه با بردار پارامترهای $\theta$ \\
+        \bottomrule
+    \end{tabularx}\vspace{0.5cm}
+\end{table}
+
+
+\section{روابط ریاضی و فرمول‌های چندخطی}\label{sec:2-2}
+
+برای نگارش فرمول‌های ریاضی تک‌خطی از محیط \code{equation} استفاده می‌شود که شماره‌گذاری آن‌ها به‌صورت خودکار بر اساس شماره‌ی فصل درج می‌گردد. همچنین برای تنظیم روابط طولانی یا چندمرحله‌ای، محیط‌های \code{align} و \code{aligned} ساختاری منظم فراهم می‌کنند. برای نمونه، تعریف توزیع احتمال شرطی برای بردار مقادیر $\mathbf{z} = {[z_1, \dots, z_K]}^\top$ به‌صورت زیر نوشته می‌شود:
+\begin{align}
+    p_k &= \frac{\exp(z_k)}{\sum_{j=1}^K \exp(z_j)}, \quad \forall k \in \{1, \dots, K\} \label{eq:chap2_prob_dist} \\
+    \sum_{k=1}^K p_k &= 1, \quad p_k \ge 0 \nonumber
+\end{align}
+در معادله‌ی~\eqref{eq:chap2_prob_dist}، سطر اول دارای شماره و ارجاع‌پذیر است، در حالی که سطر دوم با دستور \code{{\textbackslash}nonumber} بدون شماره باقی مانده است. این سازوکار دلخواه است و در صورت استفاده، مانع از شماره‌گذاری‌های غیرضروری در زنجیره‌ی محاسبات می‌شود.
+
+
+\section{محیط‌های رسمی تعریف، لم، قضیه و اثبات}\label{sec:2-3}
+
+این قالب محیط‌های از پیش‌آماده‌ای برای تدوین گزاره‌های صوری شامل \code{definition}، \code{theorem}، \code{lemma} و \code{proofenv} ارائه می‌دهد. شماره‌گذاری این محیط‌ها هماهنگ با ساختار فصول مدیریت می‌شود:
+
+\begin{definition}[فضای ضرب داخلی]\label{def:inner_product_space}
+فضای برداری $\mathcal{V}$ بر روی میدان اعداد حقیقی را یک فضای ضرب داخلی گوییم، هرگاه به هر جفت از اعضای $\mathbf{u}, \mathbf{v} \in \mathcal{V}$ یک مقدار حقیقی $\langle \mathbf{u}, \mathbf{v} \rangle$ نسبت داده شود که در اصول تقارن، خطی‌بودن و نامنفی‌بودن صدق کند.
+\end{definition}
+
+\begin{lemma}[نابرابری کوشی-شوارتز]\label{lem:cauchy_schwarz}
+برای هر دو بردار $\mathbf{u}$ و $\mathbf{v}$ در یک فضای ضرب داخلی، نابرابری زیر همواره برقرار است:
+\begin{equation}\label{eq:cauchy_schwarz}
+    |\langle \mathbf{u}, \mathbf{v} \rangle| \le \|\mathbf{u}\| \, \|\mathbf{v}\|
+\end{equation}
+تساوی زمانی و تنها زمانی رخ می‌دهد که $\mathbf{u}$ و $\mathbf{v}$ مضرب یکدیگر (وابسته‌ی خطی) باشند.
+\end{lemma}
+
+\begin{theorem}[کران بالایی خطای تقریب خطی]\label{thm:taylor_bound}
+فرض کنید تابع $f: \mathbb{R}^d \to \mathbb{R}$ مشتق‌پذیر پیوسته با ثابت لیپشیتس $L > 0$ برای گرادیان باشد. در این صورت برای هر دو نقطه‌ی $\mathbf{x}, \mathbf{y} \in \mathbb{R}^d$ داریم:
+\begin{equation}\label{eq:thm_taylor}
+    f(\mathbf{y}) \le f(\mathbf{x}) + \langle \nabla f(\mathbf{x}), \mathbf{y} - \mathbf{x} \rangle + \frac{L}{2} \|\mathbf{y} - \mathbf{x}\|_2^2
+\end{equation}
+\end{theorem}
+
+\begin{proofenv}
+با استفاده از قضیه‌ی اساسی حسابان بر روی پاره‌خط اتصال‌دهنده‌ی $\mathbf{x}$ به $\mathbf{y}$ و اعمال نابرابری کوشی-شوارتز از لم~\ref{lem:cauchy_schwarz}، انتگرال‌گیری از گرادیان به نابرابری نزول در رابطه‌ی~\eqref{eq:thm_taylor} می‌انجامد.
+\end{proofenv}
+
+
+\section{رسم نمودارهای مستقیم با بسته تیکز}\label{sec:2-4}
+
+شما همچنین می‌توانید از بسته \lr{TikZ} برای ترسیم نمودارها و فلوچارت‌های برداری درون متن استفاده کنید. این روش، مزیت‌هایی نسبت به واردکردن تصاویر خارجی دارد، از جمله انطباق کامل قلم‌ها با متن و کیفیت بالای چاپ و بزرگ‌نمایی. نگه‌داری کدهای نمودار در فایل‌های مجزا در پوشه‌ی \code{figures/} و فراخوانی آن‌ها با دستور \code{{\textbackslash}input} انجام می‌شود. در شکل~\ref{fig:chap2_pipeline}، نمونه‌ای از نمودار چهارمرحله‌ای روش‌شناسی پژوهش که با این سازوکار فراخوانی شده، نمایش داده شده است.
+
+\vspace{0.25cm}
+\begin{figure}[!ht]
+    \centering
+    \input{figures/fig_pipeline.tex}
+    \caption{نمودار مراحل جریان روش‌شناسی پژوهش و حلقه‌ی بازخورد بهینه‌سازی}\label{fig:chap2_pipeline}
+\end{figure}

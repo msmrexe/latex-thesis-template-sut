@@ -1,0 +1,214 @@
+% ==============================================================================
+%  MAIN BIBTEX CITATION DATABASE (bibliography/refs.bib)
+% ==============================================================================
+%
+%  This file contains the primary BibTeX bibliography entries for the thesis.
+%
+% ------------------------------------------------------------------------------
+%  BEST PRACTICES & HYPERLINKING:
+% ------------------------------------------------------------------------------
+%  1. Interactive Hyperlinks:
+%     The custom bibliography style (unsrtabbrv-modern.bst) automatically converts
+%     the paper title into an interactive link if you include:
+%         doi = {10.xxxx/...}  or  url = {https://...}
+%     DOI entries are preferred as they resolve to permanent publication URLs.
+%
+%  2. Non-breaking space:
+%     In Persian text, always place a non-breaking space before citations:
+%     e.g., `مدل‌های زبانی~\cite{sample_article}`
+%
+%  3. Casing preservation:
+%     Wrap acronyms or proper nouns in `{}` to preserve capitalization in titles:
+%     e.g., `title = {Explainable Generative {AI} ({GenXAI})}`
+% ==============================================================================
+
+% ------------------------------------------------------------------------------
+% 1. Journal Article (article entry type)
+% Required: author, title, journal, year
+% Optional: volume, number, pages, month, note, doi, url
+% ------------------------------------------------------------------------------
+@article{sample_article,
+  author        = {Alice Smith and Bob Johnson},
+  title         = {Deep Learning Architectures for Sequence Modeling: A Comprehensive Review},
+  journal       = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume        = {45},
+  number        = {3},
+  pages         = {1234--1250},
+  year          = {2024},
+  publisher     = {IEEE},
+  doi           = {10.1109/TPAMI.2024.1234567},
+  url           = {https://doi.org/10.1109/TPAMI.2024.1234567},
+}
+
+% ------------------------------------------------------------------------------
+% 2. Book (book entry type)
+% Required: author (or editor), title, publisher, year
+% Optional: volume, number, series, address, edition, month, note, doi, url
+% ------------------------------------------------------------------------------
+@book{sample_book,
+  author        = {Ian Goodfellow and Yoshua Bengio and Aaron Courville},
+  title         = {Deep Learning},
+  publisher     = {MIT Press},
+  address       = {Cambridge, MA, USA},
+  edition       = {1st},
+  year          = {2016},
+  url           = {https://www.deeplearningbook.org/},
+}
+
+% ------------------------------------------------------------------------------
+% 3. Conference / Symposium Paper (inproceedings entry type)
+% Required: author, title, booktitle, year
+% Optional: editor, volume, number, series, pages, address, month, organization, publisher, doi, url
+% ------------------------------------------------------------------------------
+@inproceedings{sample_inproceedings,
+  author        = {Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and {\L}ukasz Kaiser and Illia Polosukhin},
+  title         = {Attention Is All You Need},
+  booktitle     = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume        = {30},
+  pages         = {5998--6008},
+  year          = {2017},
+  url           = {https://proceedings.neurips.cc/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html},
+}
+
+% ------------------------------------------------------------------------------
+% 4. Chapter / Contribution in an Edited Book (incollection entry type)
+% Required: author, title, booktitle, publisher, year
+% Optional: editor, volume, number, series, type, chapter, pages, address, edition, month, note, doi, url
+% ------------------------------------------------------------------------------
+@incollection{sample_incollection,
+  author        = {David E. Rumelhart and Geoffrey E. Hinton and Ronald J. Williams},
+  title         = {Learning Representations by Back-Propagating Errors},
+  booktitle     = {Neurocomputing: Foundations of Research},
+  editor        = {James A. Anderson and Edward Rosenfeld},
+  publisher     = {MIT Press},
+  pages         = {696--699},
+  year          = {1988},
+  address       = {Cambridge, MA, USA},
+  doi           = {10.1038/323533a0},
+}
+
+% ------------------------------------------------------------------------------
+% 5. Section / Part of a Book by Same Author(s) (inbook entry type)
+% Required: author (or editor), title, chapter and/or pages, publisher, year
+% Optional: volume, number, series, type, address, edition, month, note, doi, url
+% ------------------------------------------------------------------------------
+@inbook{sample_inbook,
+  author        = {Christopher M. Bishop},
+  title         = {Pattern Recognition and Machine Learning},
+  chapter       = {Approximate Inference},
+  pages         = {461--510},
+  publisher     = {Springer},
+  address       = {New York, NY, USA},
+  year          = {2006},
+  doi           = {10.1007/978-0-387-45528-0},
+}
+
+% ------------------------------------------------------------------------------
+% 6. Ph.D. Dissertation (phdthesis entry type)
+% Required: author, title, school, year
+% Optional: type, address, month, note, url, doi
+% ------------------------------------------------------------------------------
+@phdthesis{sample_phdthesis,
+  author        = {Alex Krizhevsky},
+  title         = {Learning Multiple Layers of Features from Tiny Images},
+  school        = {University of Toronto},
+  address       = {Toronto, ON, Canada},
+  year          = {2009},
+  url           = {https://www.cs.toronto.edu/~kriz/thesis.pdf},
+}
+
+% ------------------------------------------------------------------------------
+% 7. Master's Thesis (mastersthesis entry type)
+% Required: author, title, school, year
+% Optional: type, address, month, note, url, doi
+% ------------------------------------------------------------------------------
+@mastersthesis{sample_mastersthesis,
+  author        = {Jane Doe},
+  title         = {Scalable Optimization Algorithms for High-Dimensional Learning Problems},
+  school        = {Sharif University of Technology},
+  address       = {Tehran, Iran},
+  year          = {2024},
+  url           = {https://library.sharif.edu/},
+}
+
+% ------------------------------------------------------------------------------
+% 8. Technical / Research Report (techreport entry type)
+% Required: author, title, institution, year
+% Optional: type, number, address, month, note, url, doi
+% ------------------------------------------------------------------------------
+@techreport{sample_techreport,
+  author        = {Tom B. Brown and Benjamin Mann and Nick Ryder and Melanie Subbiah and Jared Kaplan and Prafulla Dhariwal and Arvind Neelakantan and Pranav Shyam and Girish Sastry and Amanda Askell and others},
+  title         = {Language Models are Few-Shot Learners},
+  institution   = {OpenAI},
+  number        = {arXiv:2005.14165},
+  year          = {2020},
+  url           = {https://arxiv.org/abs/2005.14165},
+}
+
+% ------------------------------------------------------------------------------
+% 9. Software / Hardware Manual or Technical Documentation (manual entry type)
+% Required: title
+% Optional: author, organization, address, edition, month, year, note, url
+% ------------------------------------------------------------------------------
+@manual{sample_manual,
+  title         = {PyTorch: An Imperative Style, High-Performance Deep Learning Library},
+  author        = {{PyTorch Development Team}},
+  organization  = {Linux Foundation},
+  year          = {2024},
+  url           = {https://pytorch.org/docs/stable/},
+}
+
+% ------------------------------------------------------------------------------
+% 10. Miscellaneous / Online Resource / Preprint (misc entry type)
+% Required: none (at least one of author, title, howpublished, year, note)
+% Optional: author, title, howpublished, month, year, note, doi, url
+% ------------------------------------------------------------------------------
+@misc{sample_misc,
+  author        = {Yann LeCun and Corinna Cortes and Christopher J. C. Burges},
+  title         = {The {MNIST} Database of Handwritten Digits},
+  howpublished  = {\url{http://yann.lecun.com/exdb/mnist/}},
+  year          = {1998},
+  note          = {Accessed: 2026-10-28},
+}
+
+% ------------------------------------------------------------------------------
+% 11. Unpublished Document / Working Paper (unpublished entry type)
+% Required: author, title, note
+% Optional: month, year, url
+% ------------------------------------------------------------------------------
+@unpublished{sample_unpublished,
+  author        = {Alan Turing},
+  title         = {Mechanical Intelligence and Computational Logic: Early Draft Notes},
+  note          = {Unpublished manuscript, National Physical Laboratory Archive},
+  year          = {1948},
+}
+
+% ------------------------------------------------------------------------------
+% 12. Printed Work without a Publisher / Booklet (booklet entry type)
+% Required: title
+% Optional: author, howpublished, address, month, year, note
+% ------------------------------------------------------------------------------
+@booklet{sample_booklet,
+  title         = {Ethical Guidelines for Autonomous and Intelligent Systems},
+  author        = {{IEEE Global Initiative on Ethics of Autonomous Systems}},
+  howpublished  = {Policy Whitepaper},
+  address       = {Piscataway, NJ, USA},
+  year          = {2019},
+  url           = {https://standards.ieee.org/industry-connections/ec/autonomous-systems.html},
+}
+
+% ------------------------------------------------------------------------------
+% 13. Entire Conference Proceedings Volume (proceedings entry type)
+% Required: title, year
+% Optional: editor, volume, number, series, address, month, publisher, organization
+% ------------------------------------------------------------------------------
+@proceedings{sample_proceedings,
+  title         = {Proceedings of the 40th International Conference on Machine Learning (ICML)},
+  year          = {2023},
+  editor        = {Andreas Krause and Emma Brunskill and Kyunghyun Cho},
+  volume        = {202},
+  series        = {Proceedings of Machine Learning Research},
+  publisher     = {PMLR},
+  address       = {Honolulu, HI, USA},
+  url           = {https://proceedings.mlr.press/v202/},
+}

@@ -1,0 +1,246 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  BIDIRECTIONAL THESIS GLOSSARY & DICTIONARY REPOSITORY (backmatter/words.tex)
+% ==============================================================================
+%
+%  WELCOME TO THE THESIS GLOSSARY FILE!
+%  This file is the SINGLE SOURCE OF TRUTH for all technical terms and
+%  translations used in the thesis.
+%
+% ------------------------------------------------------------------------------
+%  HOW TO ADD NEW TERMS (دستورالعمل افزودن واژگان):
+% ------------------------------------------------------------------------------
+%  Simply add term pairs anywhere in this file using the following syntax:
+%
+%      \dictentry{English Term}{معادل فارسی}
+%
+%  Examples:
+%      \dictentry{neural network}{شبکه‌ی عصبی}
+%      \dictentry{attention mechanism}{مکانیزم توجه}
+%      \dictentry{loss function}{تابع زیان}
+%
+% ------------------------------------------------------------------------------
+%  COMPILATION & AUTOMATIC SORTING PIPELINE:
+% ------------------------------------------------------------------------------
+%  1. You do NOT need to sort entries manually! Add them in any order.
+%  2. When compiling via `latexmk` or VS Code LaTeX Workshop:
+%     The build hook in `latexmkrc` automatically executes:
+%         python scripts/build_dictionaries.py
+%  3. If compiling manually via `xelatex`:
+%     Run `python scripts/build_dictionaries.py` in your terminal whenever
+%     you add or modify terms in this file.
+%  4. The python script automatically:
+%     - Generates `backmatter/dict_fa2en_content.tex` sorted by Persian alphabet.
+%     - Generates `backmatter/dict_en2fa_content.tex` sorted by English alphabet.
+%     - Handles special Persian characters (پ، چ، ژ، گ، آ) and ignores
+%       zero-width non-joiners (\u200c / نیم‌فاصله) for strictly correct collation.
+%     - Groups entries by letter headers (\dicalphabet{...}).
+%  5. DO NOT EDIT `dict_fa2en_content.tex` or `dict_en2fa_content.tex` directly,
+%     as they are automatically overwritten by the build script.
+% ==============================================================================
+
+% \dictentry{English Term}{Persian Translation}
+%  Automatic sorting & grouping is performed upon compilation.
+% -------------------------------------------------------
+
+% Standard Abbreviations and Acronyms
+\dictentry{AI}{هوش مصنوعی}
+\dictentry{ANN}{شبکه‌ی عصبی مصنوعی}
+\dictentry{API}{رابط برنامه‌نویسی نرم‌افزار}
+\dictentry{AUC}{سطح زیر منحنی}
+\dictentry{BERT}{مدل برت}
+\dictentry{BFS}{جستجوی اول سطح}
+\dictentry{CNN}{شبکه‌ی عصبی پیچشی}
+\dictentry{CPU}{واحد پردازش مرکزی}
+\dictentry{CV}{بینایی ماشین}
+\dictentry{DAG}{گراف جهت‌دار بدون دور}
+\dictentry{DFS}{جستجوی اول عمق}
+\dictentry{DL}{یادگیری عمیق}
+\dictentry{DP}{برنامه‌ریزی پویا}
+\dictentry{DPO}{بهینه‌سازی مستقیم ترجیحات}
+\dictentry{GAN}{شبکه‌ی مولد تخاصمی}
+\dictentry{GNN}{شبکه‌ی عصبی گرافی}
+\dictentry{GPT}{ترنسفورمر پیش‌آموزش‌دیده‌ی مولد}
+\dictentry{GPU}{واحد پردازش گرافیکی}
+\dictentry{GRU}{واحد بازگشتی گیت‌شده}
+\dictentry{KL divergence}{واگرایی کولبک-لایبلر}
+\dictentry{KNN}{کا نزدیک‌ترین همسایه}
+\dictentry{LLM}{مدل زبانی بزرگ}
+\dictentry{LSTM}{حافظه‌ی کوتاه‌مدت طولانی}
+\dictentry{MAE}{میانگین قدرمطلق خطا}
+\dictentry{MCMC}{مونت‌کارلوی زنجیره‌ی مارکوف}
+\dictentry{ML}{یادگیری ماشین}
+\dictentry{MLP}{پرسپترون چندلایه}
+\dictentry{MSE}{میانگین مربعات خطا}
+\dictentry{NLP}{پردازش زبان طبیعی}
+\dictentry{PCA}{تحلیل مؤلفه‌های اصلی}
+\dictentry{RAG}{تولید تقویت‌شده با بازیابی}
+\dictentry{RL}{یادگیری تقویتی}
+\dictentry{RLHF}{یادگیری تقویتی با بازخورد انسانی}
+\dictentry{RNN}{شبکه‌ی عصبی بازگشتی}
+\dictentry{ROC}{مشخصه‌ی عملکرد سیستم}
+\dictentry{SGD}{گرادیان کاهشی تصادفی}
+\dictentry{SVD}{تجزیه‌ی مقادیر منفرد}
+\dictentry{SVM}{ماشین بردار پشتیبان}
+\dictentry{TPU}{واحد پردازش تانسور}
+\dictentry{VAE}{خودرمزگذار متغیر}
+
+% Full Technical Terms - AI, Architectures, Algorithms & Optimization
+\dictentry{accuracy}{دقت}
+\dictentry{activation function}{تابع فعال‌سازی}
+\dictentry{active learning}{یادگیری فعال}
+\dictentry{Adam optimizer}{بهینه‌ساز ادام}
+\dictentry{adversarial attack}{حمله‌ی متخاصم}
+\dictentry{adversarial training}{آموزش متخاصم}
+\dictentry{algorithm}{الگوریتم}
+\dictentry{alignment}{هم‌ترازی}
+\dictentry{application programming interface}{رابط برنامه‌نویسی نرم‌افزار}
+\dictentry{approximation algorithm}{الگوریتم تقریبی}
+\dictentry{area under curve}{سطح زیر منحنی}
+\dictentry{artificial intelligence}{هوش مصنوعی}
+\dictentry{artificial neural network}{شبکه‌ی عصبی مصنوعی}
+\dictentry{attention mechanism}{مکانیزم توجه}
+\dictentry{autoencoder}{خودرمزگذار}
+\dictentry{autoregressive model}{مدل خودهمبسته}
+\dictentry{backpropagation}{پس‌انتشار}
+\dictentry{baseline}{خط‌پایه}
+\dictentry{batch normalization}{نرمال‌سازی دسته‌ای}
+\dictentry{batch size}{اندازه‌ی دسته}
+\dictentry{beam search}{جستجوی پرتو}
+\dictentry{benchmark}{محک ارزیابی}
+\dictentry{bias}{سوگیری}
+\dictentry{binary search}{جستجوی دودویی}
+\dictentry{binary tree}{درخت دودویی}
+\dictentry{breadth-first search}{جستجوی اول سطح}
+\dictentry{central processing unit}{واحد پردازش مرکزی}
+\dictentry{classification}{دسته‌بندی}
+\dictentry{classifier}{دسته‌بند}
+\dictentry{clustering}{خوشه‌بندی}
+\dictentry{computational complexity}{پیچیدگی محاسباتی}
+\dictentry{computer vision}{بینایی ماشین}
+\dictentry{context window}{پنجره‌ی بافتار}
+\dictentry{contrastive learning}{یادگیری تقابلی}
+\dictentry{convergence}{همگرایی}
+\dictentry{convex optimization}{بهینه‌سازی محدب}
+\dictentry{convolutional neural network}{شبکه‌ی عصبی پیچشی}
+\dictentry{cost function}{تابع هزینه}
+\dictentry{cross-attention}{توجه متقاطع}
+\dictentry{cross-entropy loss}{زیان آنتروپی متقاطع}
+\dictentry{cross-validation}{اعتبارسنجی متقاطع}
+\dictentry{data augmentation}{افزایش داده}
+\dictentry{dataset}{مجموعه‌داده}
+\dictentry{decision boundary}{مرز تصمیم}
+\dictentry{decision tree}{درخت تصمیم}
+\dictentry{decoder}{رمزگشا}
+\dictentry{deep learning}{یادگیری عمیق}
+\dictentry{depth-first search}{جستجوی اول عمق}
+\dictentry{dimensionality reduction}{کاهش ابعاد}
+\dictentry{directed acyclic graph}{گراف جهت‌دار بدون دور}
+\dictentry{direct preference optimization}{بهینه‌سازی مستقیم ترجیحات}
+\dictentry{discriminator}{متمایزگر}
+\dictentry{divide and conquer}{تقسیم و غلبه}
+\dictentry{dropout}{رهاسازی}
+\dictentry{dynamic programming}{برنامه‌ریزی پویا}
+\dictentry{embedding}{تعبیه}
+\dictentry{encoder}{رمزگذار}
+\dictentry{epoch}{ایپاک}
+\dictentry{evaluation metric}{معیار ارزیابی}
+\dictentry{explainability}{توضیح‌پذیری}
+\dictentry{feature extraction}{استخراج ویژگی}
+\dictentry{feature selection}{انتخاب ویژگی}
+\dictentry{feedforward network}{شبکه‌ی پیش‌خور}
+\dictentry{few-shot learning}{یادگیری چندنمونه‌ای}
+\dictentry{fine-tuning}{تنظیم ظریف}
+\dictentry{gated recurrent unit}{واحد بازگشتی گیت‌شده}
+\dictentry{generalization}{تعمیم‌پذیری}
+\dictentry{generative adversarial network}{شبکه‌ی مولد تخاصمی}
+\dictentry{generative pre-trained transformer}{ترنسفورمر پیش‌آموزش‌دیده‌ی مولد}
+\dictentry{gradient descent}{گرادیان کاهشی}
+\dictentry{graph neural network}{شبکه‌ی عصبی گرافی}
+\dictentry{graphics processing unit}{واحد پردازش گرافیکی}
+\dictentry{greedy algorithm}{الگوریتم حریصانه}
+\dictentry{heuristic}{اکتشافی}
+\dictentry{hidden layer}{لایه‌ی پنهان}
+\dictentry{hyperparameter}{ابرپارامتر}
+\dictentry{hypothesis space}{فضای فرضیه}
+\dictentry{in-context learning}{یادگیری درون‌بافتاری}
+\dictentry{inference}{استنتاج}
+\dictentry{information retrieval}{بازیابی اطلاعات}
+\dictentry{initialization}{مقداردهی اولیه}
+\dictentry{interpretability}{تفسیرپذیری}
+\dictentry{kernel function}{تابع هسته}
+\dictentry{k-nearest neighbors}{کا نزدیک‌ترین همسایه}
+\dictentry{Kullback-Leibler divergence}{واگرایی کولبک-لایبلر}
+\dictentry{language model}{مدل زبانی}
+\dictentry{large language model}{مدل زبانی بزرگ}
+\dictentry{latent space}{فضای پنهان}
+\dictentry{layer normalization}{نرمال‌سازی لایه‌ای}
+\dictentry{learning rate}{نرخ یادگیری}
+\dictentry{linear regression}{رگرسیون خطی}
+\dictentry{logistic regression}{رگرسیون لجستیک}
+\dictentry{long short-term memory}{حافظه‌ی کوتاه‌مدت طولانی}
+\dictentry{loss function}{تابع زیان}
+\dictentry{machine learning}{یادگیری ماشین}
+\dictentry{Markov chain Monte Carlo}{مونت‌کارلوی زنجیره‌ی مارکوف}
+\dictentry{matrix multiplication}{ضرب ماتریسی}
+\dictentry{maximum likelihood estimation}{برآورد بیشینه‌ی درست‌نمایی}
+\dictentry{mean absolute error}{میانگین قدرمطلق خطا}
+\dictentry{mean squared error}{میانگین مربعات خطا}
+\dictentry{minimax algorithm}{الگوریتم می‌نی‌ماکس}
+\dictentry{model capacity}{ظرفیت مدل}
+\dictentry{multi-head attention}{توجه چندسره}
+\dictentry{multi-layer perceptron}{پرسپترون چندلایه}
+\dictentry{multimodal}{چندوجهی}
+\dictentry{natural language processing}{پردازش زبان طبیعی}
+\dictentry{neural network}{شبکه‌ی عصبی}
+\dictentry{non-convex optimization}{بهینه‌سازی غیرمحدب}
+\dictentry{NP-complete}{مسئله‌ی ان‌پی کامل}
+\dictentry{NP-hard}{مسئله‌ی ان‌پی سخت}
+\dictentry{objective function}{تابع هدف}
+\dictentry{optimization}{بهینه‌سازی}
+\dictentry{out-of-distribution}{خارج از توزیع}
+\dictentry{overfitting}{بیش‌برازش}
+\dictentry{parallel computing}{محاسبات موازی}
+\dictentry{parameter}{پارامتر}
+\dictentry{perceptron}{پرسپترون}
+\dictentry{pipeline}{خط‌لوله}
+\dictentry{pooling}{تجمیع}
+\dictentry{precision}{دقت}
+\dictentry{pre-training}{پیش‌آموزش}
+\dictentry{principal component analysis}{تحلیل مؤلفه‌های اصلی}
+\dictentry{prompt engineering}{مهندسی پرامپت}
+\dictentry{pruning}{هرس}
+\dictentry{random forest}{جنگل تصادفی}
+\dictentry{recall}{بازخوانی}
+\dictentry{receiver operating characteristic}{مشخصه‌ی عملکرد سیستم}
+\dictentry{recurrent neural network}{شبکه‌ی عصبی بازگشتی}
+\dictentry{regularization}{منظم‌سازی}
+\dictentry{reinforcement learning}{یادگیری تقویتی}
+\dictentry{reinforcement learning from human feedback}{یادگیری تقویتی با بازخورد انسانی}
+\dictentry{residual connection}{اتصال باقیمانده}
+\dictentry{retrieval-augmented generation}{تولید تقویت‌شده با بازیابی}
+\dictentry{saddle point}{نقطه‌ی زینی}
+\dictentry{search tree}{درخت جستجو}
+\dictentry{self-attention}{خودتوجهی}
+\dictentry{self-supervised learning}{یادگیری خود‌نظارتی}
+\dictentry{semisupervised learning}{یادگیری نیمه‌نظارتی}
+\dictentry{shortest path}{کوتاه‌ترین مسیر}
+\dictentry{sigmoid}{سیگموئید}
+\dictentry{singular value decomposition}{تجزیه‌ی مقادیر منفرد}
+\dictentry{softmax}{سافت‌مکس}
+\dictentry{stochastic gradient descent}{گرادیان کاهشی تصادفی}
+\dictentry{supervised learning}{یادگیری نظارت‌شده}
+\dictentry{support vector machine}{ماشین بردار پشتیبان}
+\dictentry{tensor processing unit}{واحد پردازش تانسور}
+\dictentry{test set}{مجموعه‌ی آزمون}
+\dictentry{tokenization}{توکن‌سازی}
+\dictentry{training set}{مجموعه‌ی آموزش}
+\dictentry{transfer learning}{یادگیری انتقالی}
+\dictentry{transformer}{ترنسفورمر}
+\dictentry{underfitting}{کم‌برازش}
+\dictentry{unsupervised learning}{یادگیری بدون نظارت}
+\dictentry{validation set}{مجموعه‌ی اعتبارسنجی}
+\dictentry{variational autoencoder}{خودرمزگذار متغیر}
+\dictentry{vector space}{فضای برداری}
+\dictentry{weight decay}{کاهش وزن}
+\dictentry{zero-shot learning}{یادگیری صفرنمونه‌ای}

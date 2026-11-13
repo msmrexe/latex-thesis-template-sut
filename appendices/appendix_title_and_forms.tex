@@ -1,0 +1,76 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  APPENDIX: TITLE PAGES & FORMS (appendices/appendix_title_and_forms.tex)
+% ==============================================================================
+%  This appendix provides detailed architectural documentation on how the
+%  Persian and English title pages, as well as official administrative forms
+%  (signatures and declaration), are configured, formatted, and exported.
+% ==============================================================================
+
+\section{سازوکار صفحات عنوان و فرم‌های تصویب‌نامه و اظهارنامه}\label{sec:app_title_and_forms}
+
+در معماری این قالب، تمامی اطلاعات شناسنامه‌ای، مشخصات سازمانی و اسامی هیئت داوران در یک فایل متمرکز به نشانی \code{frontmatter/info.tex} تعریف می‌شوند. این تفکیک ساختاری مانع از تکرار داده‌ها شده و تضمین می‌کند که هرگونه ویرایش در مشخصات پایان‌نامه، به‌صورت هماهنگ در چهار بخش سند اعمال گردد:
+\begin{enumerate}
+    \item صفحه‌ی عنوان فارسی روی جلد (\code{frontmatter/title.tex})؛
+    \vspace{-0.25cm}
+    \item صفحه‌ی تصویب‌نامه‌ی هیئت داوران (\code{frontmatter/signatures.tex})؛
+    \vspace{-0.25cm}
+    \item صفحه‌ی اظهارنامه‌ی اصالت متن (\code{frontmatter/declaration.tex})؛
+    \vspace{-0.25cm}
+    \item صفحه‌ی عنوان انگلیسی در انتهای سند (\code{backmatter/title\_en.tex}).
+\end{enumerate}
+
+
+\subsection{صفحات عنوان فارسی و انگلیسی و فواصل الاستیک}
+
+صفحات عنوان بر اساس فنرهای فاصله‌ساز انعطاف‌پذیر\enfootnote{elastic fill glues} پیاده‌سازی شده‌اند. این سازوکار سبب می‌شود که فارغ از تک‌خطی یا چندخطی بودن عنوان پایان‌نامه یا تغییر در تعداد استادان، اجزای صفحه به‌طور خودکار و متوازن بر روی یک صفحه‌ی استاندارد \lr{A4} قرار گیرند. مقادیر پیش‌فرض این فواصل در فایل \code{styles/common.tex} تعریف شده و در صورت نیاز به سفارشی‌سازی فاصله‌ها، می‌توان مقادیر متناظر را در بخش ۳ فایل \code{styles/custom.tex} بازتعریف نمود.
+
+
+\subsection{فرم‌های رسمی تصویب‌نامه و اظهارنامه}
+
+فرم‌های اداری پایان‌نامه نیازمند رعایت الگوهای استاندارد دانشگاه صنعتی شریف هستند. در صفحه‌ی تصویب‌نامه، جدول اسامی داوران بر اساس شروط ماکروی \code{{\textbackslash}ifthesisfield} تنظیم می‌شود؛ به این معنا که در صورت عدم تعریف استاد مشاور یا داور دوم، ردیف‌های متناظر به‌طور خودکار حذف شده و قالب جدول دست‌نخورده باقی می‌ماند. همچنین ماکروی \code{{\textbackslash}ThesisSignTitle} این امکان را فراهم می‌سازد که اگر عنوان پایان‌نامه در صفحه‌ی روی جلد به دلیل شکست‌های دستی (\code{{\textbackslash}{\textbackslash}}) شکسته شده باشد، در فرم‌های اداری به‌صورت متنی پیوسته و روان درج گردد.
+
+
+\subsection{تولید فرم‌های مستقل چاپی و ادغام نسخه‌های امضاشده}
+
+برای تسهیل در آماده‌سازی مدارک، اسکریپت‌های ویژه‌ای در پوشه‌ی \code{scripts/} طراحی شده‌اند:
+\begin{itemize}
+    \item \textbf{تولید تک‌برگ فرم‌ها جهت چاپ}: با اجرای دستور زیر در ترمینال، فرم تصویب‌نامه به‌صورت یک فایل \lr{PDF} مستقل تک‌صفحه‌ای با سربرگ استاندارد تولید می‌شود:
+    \begin{latin}
+    \code{python scripts/export\_front\_pages.py signatures}
+    \end{latin}
+    \item \textbf{ادغام نسخه‌ی امضاشده پس از دفاع}: پس از برگزاری جلسه‌ی دفاع و اخذ امضای داوران، کافی است تصویر اسکن‌شده با فرمت \lr{PDF} در پوشه‌ی \code{frontmatter/} با نام \code{signatures.pdf} ذخیره شده و در فایل \code{thesis.tex} دستور \code{{\textbackslash}includepdfpages\{frontmatter/signatures.pdf\}} فعال گردد. این ماکرو فایل را با حفظ ابعاد دقیق \lr{A4} و بدون حاشیه جایگزین می‌نماید.
+\end{itemize}
+
+در جدول~\ref{tab:app_metadata_fields}، متغیرهای انتخابی تعبیه شده در فایل \code{frontmatter/info.tex} و کاربرد هر یک فهرست شده است.
+
+\begin{table}[ht]
+    \centering
+    \scriptsize
+    \setlength{\aboverulesep}{0pt}
+    \setlength{\belowrulesep}{0pt}
+    \caption{راهنمای متغیرهای فراداده در فایل \code{frontmatter/info.tex}}\label{tab:app_metadata_fields}
+    \vspace{0.15cm}
+    \begin{tabularx}{\textwidth}{l l l p{4cm}}
+        \toprule
+        \textbf{نام ماکرو} & \textbf{متغیر فارسی} & \textbf{معادل انگلیسی} & \textbf{شرح و کاربرد} \\
+        \midrule
+        \code{{\textbackslash}ThesisDegree} & \code{{\textbackslash}ThesisDegree} & \code{{\textbackslash}EnglishThesisDegree} & مقطع (کارشناسی ارشد، دکتری) \\
+        \code{{\textbackslash}ThesisType} & \code{{\textbackslash}ThesisType} & \code{{\textbackslash}EnglishThesisType} & نوع (پایان‌نامه، رساله، گزارش) \\
+        \code{{\textbackslash}ThesisUniversity} & \code{{\textbackslash}ThesisUniversity} & \code{{\textbackslash}EnglishThesisUniversity} & نام رسمی دانشگاه \\
+        \code{{\textbackslash}ThesisDepartment} & \code{{\textbackslash}ThesisDepartment} & \code{{\textbackslash}EnglishThesisDepartment} & نام دانشکده‌ی محل تحصیل \\
+        \code{{\textbackslash}ThesisMajor} & \code{{\textbackslash}ThesisMajor} & \code{{\textbackslash}EnglishThesisMajor} & رشته و گرایش تحصیلی \\
+        \code{{\textbackslash}ThesisTitle} & \code{{\textbackslash}ThesisTitle} & \code{{\textbackslash}EnglishThesisTitle} & عنوان پایان‌نامه روی جلد \\
+        \code{{\textbackslash}ThesisAuthor} & \code{{\textbackslash}ThesisAuthor} & \code{{\textbackslash}EnglishThesisAuthor} & نام و نام خانوادگی دانشجو \\
+        \code{{\textbackslash}ThesisSupervisor} & \code{{\textbackslash}ThesisSupervisor} & \code{{\textbackslash}EnglishThesisSupervisor} & نام و مرتبه‌ی علمی استاد راهنما \\
+        \code{{\textbackslash}ThesisAdvisor} & \code{{\textbackslash}ThesisAdvisor} & \code{{\textbackslash}EnglishThesisAdvisor} & نام استاد مشاور اول (اختیاری) \\
+        \code{{\textbackslash}ThesisSecondAdvisor} & \code{{\textbackslash}ThesisSecondAdvisor} & \code{{\textbackslash}EnglishThesisSecondAdvisor} & نام استاد مشاور دوم (اختیاری) \\
+        \code{{\textbackslash}ThesisExaminer} & \code{{\textbackslash}ThesisExaminer} & \code{{\textbackslash}EnglishThesisExaminer} & نام استاد ممتحن اول (اختیاری) \\
+        \code{{\textbackslash}ThesisSecondExaminer} & \code{{\textbackslash}ThesisSecondExaminer} & \code{{\textbackslash}EnglishThesisSecondExaminer} & نام استاد ممتحن دوم (اختیاری) \\
+        \code{{\textbackslash}ThesisThirdExaminer} & \code{{\textbackslash}ThesisThirdExaminer} & \code{{\textbackslash}EnglishThesisThirdExaminer} & نام استاد ممتحن سوم (اختیاری) \\
+        \code{{\textbackslash}ThesisDate} & \code{{\textbackslash}ThesisDate} & \code{{\textbackslash}EnglishThesisDate} & تاریخ دفاع برای صفحات عنوان \\
+        \code{{\textbackslash}ThesisSignDate} & \code{{\textbackslash}ThesisSignDate} & --- & تاریخ امضای فرم‌های رسمی \\
+        \code{{\textbackslash}ThesisSignTitle} & \code{{\textbackslash}ThesisSignTitle} & --- & عنوان پیوسته برای فرم‌های اداری \\
+        \bottomrule
+    \end{tabularx}\vspace{0.5cm}
+\end{table}

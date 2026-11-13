@@ -1,0 +1,185 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  APPENDIX: BIBLIOGRAPHY FORMATTING RULES (appendices/appendix_bibliography_rules.tex)
+% ==============================================================================
+%  This appendix details the reference formatting rules, entry types,
+%  required and optional fields, and hyperlinking mechanisms implemented
+%  in the custom unsrtabbrv-modern.bst style.
+% ==============================================================================
+
+\section{قواعد مراجع‌نگاری و فیلدهای پشتیبانی‌شده}\label{sec:app_bibliography_rules}
+
+مدیریت مراجع در این قالب توسط سبک مدرن‌شده‌ی \code{bibliography/unsrtabbrv-modern.bst} انجام می‌گیرد. این سبک با تلفیق بسته‌ی شماره‌گذاری عددی به ترتیب ظهور در متن (\lr{unsrt}) و اختصار استاندارد اسامی (\lr{abbrv}) آماده‌سازی شده و با اضافه کردن پیوندها در عنوان و افزایش پشتیبانی ساختاریافته از انواع مراجع بهبود یافته است. منابع در \code{bibliography/refs.bib} نگهداری می‌شوند و ساختار محیط در فایل \code{bibliography/bibliography.tex} پیکربندی می‌گردد.
+
+
+\subsection{پیوندهای تعاملی و وضوح خودکار نشانی‌ها}
+
+یکی از قابلیت‌های کلیدی این سبک، تبدیل خودکار عناوین مقالات و کتاب‌ها به پیوندهای کلیک‌پذیر اینترنتی در نسخه‌ی دیجیتال (\lr{PDF}) است. سازوکار وضوح نشانی بر مبنای سلسله‌مراتب زیر عمل می‌کند:
+\begin{enumerate}
+    \item \textbf{شناسه شیء دیجیتال (\lr{DOI})}: در صورت تعریف فیلد \code{doi} در مدخل، عنوان منبع به پیوند رسمی ناشر (\lr{https://doi.org/\ldots}) متصل می‌شود. درج \lr{DOI} به دلیل ماندگاری دائمی بر سایر نشانی‌ها همواره اولویت دارد.
+    \item \textbf{نشانی اینترنتی (\lr{URL})}: در غیاب \lr{DOI}، در صورت وجود فیلد \code{url}، عنوان منبع به نشانی وب مربوطه پیوند داده می‌شود.
+    \item \textbf{شناسه پایگاه پیش‌چاپ (\lr{eprint})}: در صورت نبود دو مورد فوق، فیلد \code{eprint} به‌طور خودکار به نشانی پیش‌چاپ در آرکایو (\lr{https://arxiv.org/abs/\ldots}) متصل می‌گردد.
+\end{enumerate}
+با این راهکار، نشانی‌های وب طولانی از انتهای مراجع حذف شده و دسترسی مستقیم به اصل مقالات تنها با کلیک روی عنوان آن‌ها میسر می‌گردد.
+
+
+\subsection{پشتیبانی تخصصی از پیش‌چاپ‌های آرکایو (\lr{arXiv})}
+
+برای مقالات پیش‌چاپ در مدخل \code{@misc}، سبک مراجع به پردازشگر خودکار پیش‌چاپ مجهز است. با مقداردهی فیلد \code{eprint} و فیلد اختیاری \code{primaryclass} (نظیر \lr{cs.LG} یا \lr{stat.ML}) و خالی گذاشتن فیلد \code{howpublished}، سبک به‌طور خودکار عبارتی نظیر \lr{\emph{arXiv preprint arXiv:1706.03762 [cs.CL]}} را با پیوند به آرکایو در خروجی درج می‌نماید.
+\begin{latin}
+\footnotesize
+\begin{verbatim}
+@misc{vaswani2017attention,
+  author       = {Ashish Vaswani and others},
+  title        = {Attention Is All You Need},
+  eprint       = {1706.03762},
+  primaryclass = {cs.CL},
+  year         = {2017},
+}
+\end{verbatim}
+\end{latin}
+
+
+\subsection{قواعد خلاصه‌سازی نویسندگان، حروف بزرگ و ارجاع در متن}
+
+رعایت ضوابط زیر جهت حفظ آراستگی بصری و صحت مراجع‌نگاری الزامی است:
+\begin{itemize}
+    \item \textbf{اختصار نام نویسندگان}: نام کوچک نویسندگان به‌صورت حرف اول همراه با نقطه و سپس نام خانوادگی (\lr{F. Last}) خلاصه‌سازی می‌شود.
+    \item \textbf{سقف تعداد نویسندگان}: اگر مدخلی حداکثر ۱۰ نویسنده داشته باشد، اسامی تمامی مؤلفان چاپ می‌گردد. در مقالات پرنویسنده (بیش از ۱۰ نویسنده)، سبک به‌صورت خودکار نام ۶ نویسنده نخست را درج کرده و سپس \lr{, et~al.} را می‌افزاید. همچنین استفاده از کلمه کلیدی \code{and others} در انتهای فهرست نویسندگان، به‌طور خودکار به \lr{et~al.} تبدیل می‌شود.
+    \item \textbf{حفظ حروف بزرگ در عناوین انگلیسی}: سبک به‌صورت خودکار حروف عناوین مقالات را به حروف کوچک تبدیل می‌کند. برای محافظت از حروف بزرگ اختصارات (\lr{\{CNN\}, \{BERT\}, \{LSTM\}})، اسامی خاص (\lr{\{Bayesian\}, \{Markov\}, \{Iran\}}) یا روابط ریاضی، باید این واژه‌ها در آکولاد \code{\{\ldots\}} احاطه گردند. عناوین کتاب‌ها و پایان‌نامه‌ها به قلم کج (\code{\textbackslash{}em}) چاپ می‌شوند.
+    \item \textbf{فاصله‌ی نشکن در ارجاعات فارسی}: پیش از دستور ارجاع باید همواره از کاراکتر مدک یا تلد (\lr{\textasciitilde}) استفاده شود تا شماره‌ی مرجع به ابتدای سطر بعد منتقل نشود (مانند: مدل‌های زبانی\code{\textasciitilde{\textbackslash}cite\{\ldots\}}). برای استناد هم‌زمان به چند منبع، شناسه‌ها درون یک دستور (\code{{\textbackslash}cite\{ref1, ref2\}}) قید گردند.
+\end{itemize}
+
+
+\subsection{فیلدهای پالایش‌شده جهت خروجی تمیز و مدرن}
+
+در سبک مدرن‌شده‌ی \code{unsrtabbrv-modern.bst}، برخی فیلدهای سنتی و غیرضروری به‌صورت هدفمند نادیده گرفته می‌شوند تا فهرست مراجع تمیزتر و کوتاه‌تر گردد. این تغییرات شامل موارد زیر است:
+\begin{itemize}
+    \item \textbf{فیلد مکان ناشر (\code{address})}: در کلیه انواع مدخل‌ها سرکوب شده است؛ زیرا در انتشارات دیجیتال امروزی، ذکر شهر و کشور ناشر منسوخ تلقی شده و مراجع را شلوغ می‌سازد.
+    \item \textbf{فیلدهای \code{publisher} و \code{organization} در مقالات همایشی (\code{@inproceedings})}: این فیلدها حذف گردیده‌اند، زیرا نام کنفرانس در فیلد \code{booktitle} هویت علمی کامل مرجع را بیان می‌نماید.
+    \item \textbf{استانداردسازی تاریخ انتشار}: فیلد \code{month} در حضور \code{year} نادیده گرفته شده و تاریخ در تمام مراجع با سال ۴ رقمی یکپارچه می‌شود.
+\end{itemize}
+
+
+\subsection{ماتریس جامع انواع مدخل‌ها و فیلدهای پشتیبانی‌شده}
+
+سبک مراجع قالب از ۱۳ نوع مدخل استاندارد بیب‌تک (\lr{BibTeX}) پشتیبانی می‌کند. در جدول~\ref{tab:app_bib_types_matrix}، ماتریس فیلدهای اجباری، فیلدهای اختیاریِ مؤثر در خروجی و نکات فنی سبک گردآوری شده است. قابلیت الصاق پیوند تعاملی (\code{doi}، \code{url} و \code{eprint}) به‌طور فراگیر در تمامی مدخل‌ها فعال است.
+
+\begin{table}[!ht]
+    \centering
+    \footnotesize
+    \linespread{1.0}\selectfont
+    \setlength{\parskip}{0pt}
+    \renewcommand{\tabularxcolumn}[1]{p{#1}}
+    \renewcommand{\arraystretch}{1.9}
+    \setlength{\tabcolsep}{3.5pt}
+    \setlength{\aboverulesep}{0pt}
+    \setlength{\belowrulesep}{0pt}
+    \caption{مشخصات، فیلدهای الزامی و اختیاری انواع مراجع (\code{unsrtabbrv-modern.bst})}\label{tab:app_bib_types_matrix}
+    \vspace{0.1cm}
+    \begin{tabularx}{\textwidth}{p{2.75cm} p{3.35cm} p{3.4cm} X}
+        \toprule
+        \textbf{نوع مدخل و کاربرد} & \textbf{فیلدهای الزامی} & \textbf{فیلدهای اختیاری مؤثر} & \textbf{ملاحظات سبک و ویژگی‌های خروجی} \vspace{0.1cm}\\
+        \midrule
+        \code{@article}\newline
+        {\scriptsize مقاله ژورنال علمی} &
+        \lr{author, title,}\newline
+        \lr{journal, year} &
+        \lr{volume, number,}\newline
+        \lr{pages, note} &
+        مشخصات به‌صورت \lr{vol(no):pp}. \\ % chktex 36
+        \addlinespace[1pt]
+        \code{@inproceedings}\newline
+        {\scriptsize مقاله کنفرانس / همایش} &
+        \lr{author, title,}\newline
+        \lr{booktitle, year} &
+        \lr{pages, volume, note,}\newline
+        \lr{series, number} &
+        درج پیشوند \lr{In} قبل از نام همایش؛ حذف خودکار فیلدهای زاید \lr{address}، \lr{publisher} و \lr{organization}. \\
+        \addlinespace[1pt]
+        \code{@book}\newline
+        {\scriptsize کتاب کامل یا گردآوری} &
+        \lr{author/editor, title,}\newline
+        \lr{publisher, year} &
+        \lr{volume, series, note,}\newline
+        \lr{edition, number} &
+        عنوان کتاب به‌صورت ایتالیک و پیونددار؛ سرکوب فیلد مکان ناشر (\lr{address}) جهت تمیزی مراجع. \\
+        \addlinespace[1pt]
+        \code{@incollection}\newline
+        {\scriptsize فصلی از کتاب گردآوری} &
+        \lr{author, title, year,}\newline
+        \lr{booktitle, publisher} &
+        \lr{chapter, pages, note,}\newline
+        \lr{volume, series, edition} &
+        نام کتاب با پیشوند \lr{In} و ایتالیک؛ عنوان فصل پیونددار؛ تفکیک شماره فصل و بازه صفحات. \\
+        \addlinespace[1pt]
+        \code{@inbook}\newline
+        {\scriptsize بخشی از کتاب تألیفی} &
+        \lr{author/editor, title,}\newline
+        \lr{chapter/pages,}\newline
+        \lr{publisher, year} &
+        \lr{volume, series, note,}\newline
+        \lr{edition, number} &
+        عنوان کتاب ایتالیک؛ الزام به قید شماره فصل (\lr{chapter}) یا صفحات (\lr{pages})؛ پیوند روی عنوان. \\
+        \addlinespace[1pt]
+        \code{@techreport}\newline
+        {\scriptsize گزارش فنی یا سازمانی} &
+        \lr{author, title,}\newline
+        \lr{institution, year} &
+        \lr{number, type, note} &
+        درج شماره و نام مؤسسه؛ پیش‌فرض نوع گزارش: \lr{Technical Report}. \\
+        \addlinespace[1pt]
+        \code{@phdthesis}\newline
+        {\scriptsize رساله مقطع دکتری} &
+        \lr{author, title,}\newline
+        \lr{school, year} &
+        \lr{type, note} &
+        عنوان رساله ایتالیک و پیونددار؛ درج دانشگاه؛ مقدار پیش‌فرض نوع مدرک: \lr{PhD thesis}. \\
+        \addlinespace[1pt]
+        \code{@mastersthesis}\newline
+        {\scriptsize پایان‌نامه کارشناسی ارشد} &
+        \lr{author, title,}\newline
+        \lr{school, year} &
+        \lr{type, note} &
+        عنوان پیونددار با حروف ساده؛ درج دانشگاه؛ مقدار پیش‌فرض نوع مدرک: \lr{Master's thesis}. \\
+        \addlinespace[1pt]
+        \code{@misc}\newline
+        {\scriptsize پیش‌چاپ، وب، داده} &
+        حداقل یکی از فیلدهای\newline
+        شناسنامه اثر &
+        \lr{author, title, year,}\newline
+        \lr{eprint, primaryclass,}\newline
+        \lr{howpublished, note} &
+        پردازش خودکار \lr{eprint} برای \lr{arXiv} با عنوان پیونددار و نمایش شاخه تخصصی؛ پشتیبانی از \lr{howpublished}. \\
+        \midrule
+        \multicolumn{4}{c}{\textbf{\scriptsize سایر مدخل‌های استاندارد بیب‌تک (مستندات فنی، آثار چاپ‌نشده و کتابچه‌ها)}} \\[4pt]
+        \midrule
+        \code{@manual}\newline
+        {\scriptsize راهنما و مستندات فنی} &
+        \lr{title} &
+        \lr{author, organization,}\newline
+        \lr{edition, year, note} &
+        عنوان راهنما ایتالیک؛ در غیاب مؤلف، نام سازمان در جایگاه پدیدآور درج می‌گردد. \\
+        \addlinespace[1pt]
+        \code{@unpublished}\newline
+        {\scriptsize پیش‌نویس چاپ‌نشده} &
+        \lr{author, title, note} &
+        \lr{year} &
+        فیلد \lr{note} اجباری بوده و وضعیت فعلی اثر (مانند دست‌نویس یا در دست داوری) را توصیف می‌نماید. \\
+        \addlinespace[1pt]
+        \code{@proceedings}\newline
+        {\scriptsize مجموعه‌مقالات همایش} &
+        \lr{title, year} &
+        \lr{editor, volume, series,}\newline
+        \lr{publisher, note} &
+        عنوان کل مجموعه به‌صورت ایتالیک؛ مناسب برای استناد به کل کتاب همایش به‌جای تک‌مقاله. \\
+        \addlinespace[1pt]
+        \code{@booklet}\newline
+        {\scriptsize اثر چاپی فاقد ناشر} &
+        \lr{title} &
+        \lr{author, year, note,}\newline
+        \lr{howpublished} &
+        مناسب برای بروشورها یا گزارش‌ها؛ شیوه نشر در فیلد \lr{howpublished} درج می‌شود. \\
+        \bottomrule
+    \end{tabularx}
+\end{table}

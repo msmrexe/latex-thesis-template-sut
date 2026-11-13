@@ -1,0 +1,89 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  TIKZ RESEARCH PIPELINE FIGURE (figures/fig_pipeline.tex)
+% ==============================================================================
+%  A clean, modular 4-stage research methodology and validation pipeline
+%  with an iterative optimization loop, natively rendered via TikZ.
+% ==============================================================================
+
+\begin{tikzpicture}[
+    auto,
+    font=\small,
+    >=Stealth,
+    stage/.style={
+        rectangle,
+        draw=black!65,
+        fill=black!2.5,
+        rounded corners=4pt,
+        line width=0.8pt,
+        minimum width=3.1cm,
+        minimum height=1.45cm,
+        text width=2.9cm,
+        align=center,
+        inner sep=3.5pt
+    },
+    core/.style={
+        rectangle,
+        draw=black!90,
+        fill=black!8,
+        rounded corners=4pt,
+        line width=1.0pt,
+        minimum width=3.1cm,
+        minimum height=1.45cm,
+        text width=2.9cm,
+        align=center,
+        inner sep=3.5pt
+    },
+    flow/.style={
+        ->,
+        line width=0.9pt,
+        draw=black!75
+    },
+    feedback/.style={
+        ->,
+        line width=0.85pt,
+        draw=black!65,
+        dashed
+    }
+]
+
+    % Main pipeline stages (Right-to-Left Persian workflow)
+    \node[stage] (step1) at (11.1, 0) {%
+        \textbf{\rl{گام اول:}}\\[-6pt]%
+        \textbf{\rl{ورود داده‌ها}}\\[1pt]%
+        \scriptsize\rl{گردآوری، پاک‌سازی و}\\[-9pt]%
+        \scriptsize\rl{نرمال‌سازی نمونه‌ها}%
+    };
+
+    \node[stage] (step2) at (7.4, 0) {%
+        \textbf{\rl{گام دوم:}}\\[-6pt]%
+        \textbf{\rl{مدل‌سازی}}\\[1pt]%
+        \scriptsize\rl{استخراج ویژگی‌ها و}\\[-9pt]%
+        \scriptsize\rl{فرمول‌بندی فضای مسئله}%
+    };
+
+    \node[core] (step3) at (3.7, 0) {%
+        \textbf{\rl{گام سوم:}}\\[-6pt]%
+        \textbf{\rl{روش پیشنهادی}}\\[1pt]%
+        \scriptsize\rl{پیاده‌سازی الگوریتم و}\\[-9pt]%
+        \scriptsize\rl{بهینه‌سازی محاسباتی}%
+    };
+
+    \node[stage] (step4) at (0, 0) {%
+        \textbf{\rl{گام چهارم:}}\\[-6pt]%
+        \textbf{\rl{اعتبارسنجی}}\\[1pt]%
+        \scriptsize\rl{محاسبه‌ی سنجه‌های دقت}\\[-9pt]%
+        \scriptsize\rl{و ارزیابی تجربی نتایج}%
+    };
+
+    % % Forward connecting arrows
+    % \draw[flow] (step1) -- (step2);
+    % \draw[flow] (step2) -- (step3);
+    % \draw[flow] (step3) -- (step4);
+
+    % % Iterative feedback / calibration loop underneath
+    % \draw[feedback] ($(step4.south)+(0.3, -0.05)$) to[bend right=22] 
+    %     node[below=2pt, font=\scriptsize] {\rl{حلقه‌ی بازخورد و تنظیم بهینه‌ی پارامترها}} 
+    %     ($(step2.south)+(-0.3, -0.05)$);
+
+\end{tikzpicture}
