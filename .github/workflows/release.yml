@@ -1,0 +1,56 @@
+name: Build and Release Thesis PDF
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Compile LaTeX Thesis & Collate Dictionaries
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install TeX Live & XeTeX Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-xetex \
+            texlive-lang-arabic \
+            texlive-latex-extra \
+            texlive-science \
+            texlive-pstricks \
+            texlive-fonts-recommended \
+            fonts-lmodern \
+            latexmk
+
+      - name: Collate Bidirectional Dictionaries
+        run: python scripts/build_dictionaries.py
+
+      - name: Compile Thesis PDF (latexmk)
+        run: latexmk -xelatex -synctex=1 -interaction=nonstopmode thesis.tex
+
+      - name: Upload PDF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-pdf
+          path: thesis.pdf
+          if-no-files-found: error
+
+      - name: Publish PDF to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: thesis.pdf
+          generate_release_notes: true

@@ -58,7 +58,11 @@
 
 Academic typesetting in Persian has historically presented significant friction for graduate researchers. Common pitfalls include fragile styling, cryptic errors, font issues in title numbering, hyperref anchor collisions, unformatted bidirectional inline code snippets, and manual, error-prone compilation of English-Persian glossaries.
 
-This repository represents a **ground-up modernization and architectural re-engineering** of the classic Sharif thesis template. It preserves the clean layout traditions established by early pioneers while introducing modern software engineering principles: strict separation of concerns, single sources of truth, automated Python collation pipelines, PDF 1.7 vector rendering, and zero-warning compilation diagnostics.
+This repository represents a **ground-up modernization and architectural re-engineering** of the classic Sharif thesis template. It preserves the clean layout traditions established by early designers while introducing modern software engineering principles: strict separation of concerns, single sources of truth, automated Python collation pipelines, PDF 1.7 vector rendering, and zero-warning compilation diagnostics.
+
+### 🇮🇷 درباره و معرفی قالب (به زبان فارسی)
+
+این مخزن شامل **نسخه بازطراحی‌شده و مدرن قالب پایان‌نامه لاتک دانشگاه صنعتی شریف** است. این قالب بر مبنای آخرین شیوه‌نامه‌های نگارش و استانداردهای آموزشی دانشگاه صنعتی شریف برای تدوین **رساله دکتری**، **پایان‌نامه کارشناسی ارشد** و **پروژه کارشناسی** در تمامی رشته‌ها آماده‌سازی شده است. ساختار این قالب با جداسازی کامل موتور استایل و قلم‌ها از محتوای کاربر، برطرف‌سازی خطاهای رایج زی‌پرشین، اتوماتیک‌سازی جزئیات شرطی صفحات عنوان و فرم‌ها، همراه با پایپ‌لاین خودکار پایتون برای تولید واژه‌نامه‌های دوطرفه (فارسی به انگلیسی و انگلیسی به فارسی) و هماهنگی کامل با کامپایلر `latexmk` و نرم‌افزار VS Code، تجربه‌ای استاندارد و بدون اخطار را برای پژوهشگران فراهم می‌کند.
 
 > [!NOTE]
 > **Built-in Dual-Purpose Writing & Technical Guide:**
