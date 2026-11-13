@@ -24,9 +24,11 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install TeX Live & XeTeX Dependencies
+      - name: Install TeX Live, XeTeX & Fonts
         run: |
           sudo apt-get update
+          # Pre-accept MS Core Fonts EULA in case any TeX extension searches for MS fonts
+          echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections || true
           sudo apt-get install -y --no-install-recommends \
             texlive-xetex \
             texlive-lang-arabic \
@@ -35,7 +37,11 @@ jobs:
             texlive-pstricks \
             texlive-fonts-recommended \
             fonts-lmodern \
+            fonts-freefont-ttf \
+            fonts-liberation \
             latexmk
+          # Optional MS core fonts installation (tolerates mirror timeout)
+          sudo apt-get install -y ttf-mscorefonts-installer || true
 
       - name: Collate Bidirectional Dictionaries
         run: python scripts/build_dictionaries.py

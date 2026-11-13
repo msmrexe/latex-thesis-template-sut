@@ -37,7 +37,6 @@
 \usepackage{tabularx,booktabs,array}
 \renewcommand{\tabularxcolumn}[1]{m{#1}} % Force all 'X' columns in tabularx to vertically center contents
 \usepackage{makecell}
-\usepackage{soul}
 \usepackage{geometry}
 \usepackage{multicol,multirow}
 \usepackage{hhline}
@@ -409,7 +408,7 @@
 	{\leavevmode\unskip\nobreak\quad\hspace*{\fill}{\ensuremath{{\square}}}\end{trivlist}}
 
 \newenvironment{alg}[2]
-	{\begin{latin}\settextfont[Scale=1.0]{Times New Roman}
+	{\begin{latin}%
 	\begin{algorithm}[t]\caption{#1}\label{algo:#2}\vspace{0.2em}\begin{algorithmic}[1]}
 	{\end{algorithmic}\vspace{0.2em}\end{algorithm}\end{latin}}
 
@@ -467,8 +466,8 @@
 \definecolor{lightgreen}{HTML}{CCFFCC}
 \definecolor{lightred}{HTML}{FFCCCC}
 
-\newcommand{\hlg}[1]{{\sethlcolor{lightgreen}\hl{#1}}}
-\newcommand{\hlr}[1]{{\sethlcolor{lightred}\hl{#1}}}
+\newcommand{\hlg}[1]{\colorbox{lightgreen}{\strut #1}}
+\newcommand{\hlr}[1]{\colorbox{lightred}{\strut #1}}
 
 % -------------------- Custom Table Macros --------------------
 \newcommand{\best}[1]{\textbf{#1}}
