@@ -61,6 +61,13 @@
 \usepackage[extrafootnotefeatures]{xepersian}
 \twocolumnfootnotes % chktex 1
 
+% Compatibility fix for TeX Live 2024+ / modern LaTeX kernel:
+% bidi/xepersian patches \@tabular with \UseMathForPositioningText
+% (a LaTeX tagging marker for PDF accessibility). When PDF tagging is
+% not active, this command remains undefined in tabular environments,
+% causing an 'Undefined control sequence' warning without visual defect.
+\providecommand{\UseMathForPositioningText}{}
+
 % -------------------- Page Layout --------------------
 \newgeometry{margin=1in,bottom=1.1in,footskip=.4in}
 
@@ -69,7 +76,7 @@
 \setlength{\parskip}{0.45em}
 \setlength{\skip\footins}{1cm}
 
-% -------------------- Float Spacing (Tables & Figures in Text) --------------------
+% ------------------ Float Spacing (Tables & Figures in Text) ------------------
 % Note: These settings control floating tables and figures in the body text only.
 % They do NOT affect the Table of Contents, List of Tables, or List of Figures.
 \setlength{\textfloatsep}{26pt plus 4pt minus 2pt} % Distance between top/bottom float and text
@@ -78,10 +85,10 @@
 \captionsetup[table]{skip=8pt}                     % Distance between table caption and table body
 \captionsetup[figure]{skip=8pt}                    % Distance between figure graphic and caption
 
-\setcounter{secnumdepth}{3} % Tells LaTeX to number down to the subsubsection level
-\setcounter{tocdepth}{3}    % Tells LaTeX to include down to the subsubsection level in the ToC
+\setcounter{secnumdepth}{3} % Says to number down to subsubsection level
+\setcounter{tocdepth}{3}    % Says to include down to subsubsection level in ToC
 
-% -------------------- Thesis Metadata Conditionals & Helpers --------------------
+% ------------------- Thesis Metadata Conditionals & Helpers -------------------
 % Robust test to verify if a metadata macro exists and is non-empty (and not just whitespace)
 \newcommand{\ifthesisfieldTF}[3]{%
   \ifdefined#1%
