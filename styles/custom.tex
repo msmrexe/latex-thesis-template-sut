@@ -12,7 +12,7 @@
 % ------------------------------------------------------------------------------
 %  - styles/common.tex (Core Engine):
 %      Houses the core packages, geometry, fonts, footnote engines, theorem
-%      environments, and bidirectional layout machinery. DO NOT MODIFY common.tex
+%      environments, and bidirectional layout. DO NOT MODIFY common.tex
 %      directly, so that template updates can be applied cleanly.
 %
 %  - styles/custom.tex (User Space - THIS FILE):
@@ -24,10 +24,10 @@
 % ------------------------------------------------------------------------------
 %  1. Math Operators & Notation:
 %     Define custom operators using \newcommand or \DeclareMathOperator.
-%     Always wrap LaTeX math in \ensuremath{...} or \operatorname{...} for safety.
+%     Wrap LaTeX math in \ensuremath{...} or \operatorname{...} for safety.
 %
 %  2. Visual Elements & Highlight Boxes:
-%     Create or modify tcolorbox environments (e.g., the sleek 'academicbox' below)
+%     Create or modify tcolorbox environments (e.g., the 'academicbox' below)
 %     for callouts, case studies, or theorem highlights.
 %
 %  3. Title Page Spacing & Elastic Springs:
@@ -112,13 +112,13 @@
 % Default layout dimensions are established in styles/common.tex.
 % If your university department requires slightly different margins or spacings,
 % uncomment and adjust the relevant lines below:
-%
+
 % ------------------------------------------------------------------------------
 % A. Persian & English Title Page Elastic Spacing (Spring Weights)
 % ------------------------------------------------------------------------------
 % The title page uses TeX 'fill' glues that automatically expand to balance
-% the vertical content on an A4 page. Adjust the weights to shift elements up/down:
-%
+% the vertical content on the page. Adjust weights to shift elements up/down:
+
 % \setlength{\thesistitlebeforedept}{0.1cm}                  % Space before department (FA)
 % \setlength{\thesistitleenbeforedept}{0.2cm}                % Space before department (EN)
 % \setlength{\thesistitlebeforedatatype}{0pt plus 1.5fill}    % Spring weight before degree/type
@@ -132,11 +132,11 @@
 % \setlength{\thesistitleenbeforeexaminer}{0pt plus 0.8fill}  % Spring weight before EN examiner
 % \setlength{\thesistitlebeforedate}{0pt plus 1.8fill}        % Spring weight before date
 % \setlength{\thesistitleenbeforedate}{0pt plus 1.8fill}      % Spring weight before EN date
-%
+
 % --- University Logo Scale ---
 % Adjust the size of the university logo on both Persian and English title pages:
 % \renewcommand{\ThesisLogoScale}{0.25}                      % Default scale factor is 0.25
-%
+
 % ------------------------------------------------------------------------------
 % B. Abstract & Frontmatter Typography
 % ------------------------------------------------------------------------------
@@ -145,13 +145,13 @@
 % \setlength{\thesisabstractenbeforespace}{0.25cm}           % Gap below English abstract title
 % \renewcommand{\thesisabstractenstretch}{0.73}              % English abstract line height ratio
 % \setlength{\thesisackbeforespace}{1cm}                     % Gap below Acknowledgments title
-%
+
 % ------------------------------------------------------------------------------
 % C. Footnote Spacing
 % ------------------------------------------------------------------------------
 % Gap between the bottom of the main text and the two-column footnotes:
 % \setlength{\skip\footins}{1cm}                             % Default is 1cm
-%
+
 % ------------------------------------------------------------------------------
 % D. Global Table Rules & Line Thickness
 % ------------------------------------------------------------------------------

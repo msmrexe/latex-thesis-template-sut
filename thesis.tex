@@ -6,10 +6,14 @@
 %  A Modern LaTeX Template for Typesetting Persian Theses & Dissertations
 %  Sharif University of Technology (SUT) Format
 %
-%  Originally Authored by: Hamid Zarrabi-Zadeh (https://github.com/zarrabi/thesis-template)
-%  Contributors: Ehsan Emamjomeh-Zadeh, Omid Gheibi
-%  Upgrades & Modernization by: Maryam Rezaee (https://maryamrezaee.me)
-%  License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+%  Originally Authored by: 
+%     Hamid Zarrabi-Zadeh (https://github.com/zarrabi/thesis-template)
+%  Contributors:
+%     Ehsan Emamjomeh-Zadeh, Omid Gheibi
+%  Upgrades & Modernization by: 
+%     Maryam Rezaee (https://maryamrezaee.me)
+%  License: 
+%     Creative Commons Attribution 4.0 International (CC BY 4.0)
 %
 % ------------------------------------------------------------------------------
 %  HOW TO USE THIS TEMPLATE (راهنمای استفاده):
@@ -31,29 +35,36 @@
 %     into Persian-English and English-Persian dictionaries is fully automated.
 %
 %  5. Administrative Signatures & Signed PDF Integration:
-%     Export standalone approval/declaration forms via `scripts/export_front_pages.py`.
-%     Once signed by professors, place the signed PDFs in `frontmatter/` and switch
-%     from `\include{frontmatter/...}` to `\includepdfpages{frontmatter/...pdf}` in Section 2.
+%     Export standalone declaration forms via `scripts/export_front_pages.py`.
+%     Once signed by professors, place the signed PDFs in `frontmatter/` and
+%     switch Section 2 of the code from `\include{frontmatter/...}` to 
+%     `\includepdfpages{frontmatter/...pdf}`.
 %
 % ------------------------------------------------------------------------------
 %  COMPILATION INSTRUCTIONS:
 % ------------------------------------------------------------------------------
 %  - TeX Engine: XeLaTeX (Required for XePersian and bidirectional fonts).
-%  - Recommended tool: `latexmk` via VS Code LaTeX Workshop (recipe: latexmk-xelatex).
+%  - Recommended tool: `latexmk` via VS Code LaTeX Workshop
+%                       (recipe: latexmk-xelatex).
 %  - Terminal command:
 %        latexmk -xelatex -synctex=1 -interaction=nonstopmode thesis.tex
 % ==============================================================================
+
 
 % Document Class:
 % Use 'oneside' for standard digital submission or one-sided printing.
 % Change to 'twoside' if your faculty requires double-sided hardbound binding.
 \documentclass[oneside,a4paper,12pt]{book}
 
+
 % ------------------------------------------------------------------------------
 % Preamble & Style Modules
 % ------------------------------------------------------------------------------
-\input{styles/common.tex}  % Core engine (packages, fonts, geometry, environments)
-\input{styles/custom.tex}  % User configurations, math operators, custom boxes
+% Core engine (packages, fonts, geometry, environments)
+\input{styles/common.tex}
+% User configurations, math operators, custom boxes
+\input{styles/custom.tex}
+
 
 \begin{document}
 
@@ -80,40 +91,44 @@
 \pagestyle{empty}
 \include{frontmatter/title}
 
-% --- Administrative & Dedication Pages (صفحات تصویب‌نامه، اظهارنامه و تقدیم) ---
+% ------- Form & Dedication Pages (صفحات تصویب‌نامه، اظهارنامه و تقدیم) -------
 % Toggle any of the following pages by uncommenting or commenting them:
-\include{frontmatter/besmellah}       % صفحه بسم الله (Dedication / In the Name of God)
+
+% صفحه بسم الله (Dedication / In the Name of God)
+\include{frontmatter/besmellah}       
 
 % ------------------------------------------------------------------------------
 % SIGNED FORMS MANUAL TOGGLE GUIDE (راهنمای جایگزینی فرم‌های امضاشده):
 % ------------------------------------------------------------------------------
 %  - Pre-defense (پیش از دفاع):
-%      Keep the `.tex` lines active. Forms are generated dynamically from metadata
+%      Keep the `.tex` lines active. Forms are generated from metadata
 %      configured in `frontmatter/info.tex`.
 %  - Post-defense (پس از دفاع و دریافت امضاها):
 %      1. Place the signed & scanned PDFs in `frontmatter/` (e.g.,
 %         `frontmatter/signatures.pdf` and `frontmatter/declaration.pdf`).
 %      2. Comment out the LaTeX `\include{frontmatter/...}` line.
-%      3. Uncomment the corresponding `\includepdfpages{frontmatter/...pdf}` line.
+%      3. Uncomment the corresponding `\includepdfpages{frontmatter/...pdf}`.
 %      The helper macro `\includepdfpages` supports single and multi-page PDFs
 %      seamlessly with exact A4 dimensions and zero margins.
 % ------------------------------------------------------------------------------
 
 % 1. Defense Committee Approval / Signatures (صفحه تصویب‌نامه هیئت داوران)
-\include{frontmatter/signatures}                     % LaTeX source (pre-defense)
-% \includepdfpages{frontmatter/signatures.pdf}        % Signed & scanned PDF (post-defense)
+\include{frontmatter/signatures}               % LaTeX source (pre-defense)
+% \includepdfpages{frontmatter/signatures.pdf}   % Signed PDF (post-defense)
 
 % 2. Academic Integrity Declaration (صفحه اظهارنامه اصالت متن و محتوا)
-\include{frontmatter/declaration}                    % LaTeX source (pre-defense)
-% \includepdfpages{frontmatter/declaration.pdf}       % Signed & scanned PDF (post-defense)
+\include{frontmatter/declaration}              % LaTeX source (pre-defense)
+% \includepdfpages{frontmatter/declaration.pdf}  % Signed PDF (post-defense)
 
-% --- Numbered Frontmatter (Tartibi Numerals: آ، ب، ج، ...) ---
+% ------- Numbered Frontmatter (Tartibi Numerals: آ، ب، ج، ...) -------
 \pagestyle{plain}
 \pagenumbering{tartibi}
 \hypersetup{pageanchor=true}
 
-\include{frontmatter/acknowledgments}  % صفحه سپاس (Acknowledgments)
-\include{frontmatter/abstract}         % صفحه چکیده فارسی (Persian Abstract & Keywords)
+% Acknowledgments (صفحه سپاس)
+\include{frontmatter/acknowledgments}
+% Persian Abstract & Keywords (صفحه چکیده فارسی)
+\include{frontmatter/abstract}
 
 
 % ==============================================================================
@@ -127,7 +142,7 @@
 % ==============================================================================
 % 4. MAIN BODY CHAPTERS (فصول پایان‌نامه)
 % ==============================================================================
-% Reset page numbering to standard Arabic numerals (۱، ۲، ۳، ...) for main content.
+% Reset page numbering to Arabic numerals (۱، ۲، ۳، ...) for main content.
 \pagenumbering{arabic}
 
 \include{chapters/chapter1_introduction}
@@ -166,8 +181,10 @@
 \pagestyle{empty}
 \hypersetup{pageanchor=false}
 
-\include{backmatter/abstract_en}  % English Abstract & Keywords
-\include{backmatter/title_en}     % English Title Page (Reverse Cover)
+% English Abstract & Keywords
+\include{backmatter/abstract_en}
+% English Title Page (Reverse Cover)
+\include{backmatter/title_en}
 
 
 % ==============================================================================

@@ -11,25 +11,25 @@
 %  HOW IT WORKS:
 % ------------------------------------------------------------------------------
 %  - Metadata is automatically populated from `frontmatter/info.tex`:
-%      * Title: Uses \ThesisSignTitle (or fallback \ThesisTitle)
-%      * Author: \ThesisAuthor
-%      * Supervisor: \ThesisSupervisor
-%      * Advisor(s): \ThesisAdvisor, \ThesisSecondAdvisor
-%      * Examiner(s): \ThesisExaminer, \ThesisSecondExaminer, \ThesisThirdExaminer
-%      * Date: \ThesisSignDate (or fallback \ThesisDate)
+%    * Title: Uses \ThesisSignTitle (or fallback \ThesisTitle)
+%    * Author: \ThesisAuthor
+%    * Supervisor: \ThesisSupervisor
+%    * Advisor(s): \ThesisAdvisor, \ThesisSecondAdvisor
+%    * Examiner(s): \ThesisExaminer, \ThesisSecondExaminer, \ThesisThirdExaminer
+%    * Date: \ThesisSignDate (or fallback \ThesisDate)
 %  - To toggle this page in the thesis:
 %      Toggle `\include{frontmatter/signatures}` in `thesis.tex`.
 %  - To export as a standalone single-page PDF for printing/signing:
 %      Run `python scripts/export_front_pages.py signatures`
 %      (or `.\scripts\export_front_pages.ps1 signatures` in PowerShell).
-%  - To switch to the signed PDF version after defense (جایگزینی با نسخه امضاشده):
+%  - To switch to the signed PDF after defense (جایگزینی با نسخه امضاشده):
 %      1. Save the signed PDF to `frontmatter/signatures.pdf`.
 %      2. In `thesis.tex`, comment `\include{frontmatter/signatures}` and
 %         uncomment `\includepdfpages{frontmatter/signatures.pdf}`.
 %      (Alternative: Uncomment the quick-switch line below inside this file).
 % ==============================================================================
 
-% Optional Quick-Switch: Uncomment the line below to include the signed PDF directly:
+% Optional Quick-Switch: Uncomment the line below to include the signed PDF:
 % \includepdfpages{frontmatter/signatures.pdf}\endinput
 
 \begin{large}
