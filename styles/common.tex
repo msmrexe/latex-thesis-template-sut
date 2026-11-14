@@ -381,12 +381,6 @@
 \SepMark{\,-\,}
 \renewcommand{\labelitemi}{{\small\ensuremath{\bullet}}}
 
-% Prevent reference numbers from breaking across lines in RTL (avoids dvipdfmx bann/eann link collision)
-\AtBeginDocument{
-  \let\origref\ref % chktex 1
-  \renewcommand{\ref}[1]{\mbox{\origref{#1}}}
-}
-
 \makeatletter
 % \@dottedtocline{Level}{Indent}{Number Width}
 % Table of Contents numbering and alignment
@@ -398,6 +392,36 @@
 \renewcommand*\l@figure{\@dottedtocline{1}{1.5em}{3.2em}}
 \renewcommand*\l@table{\@dottedtocline{1}{1.5em}{3.2em}}
 \renewcommand*\l@subfigure{\@dottedtocline{2}{3.8em}{2.5em}}
+\makeatother
+
+% ------------ Non-Breaking RTL Cross-References (\ref & \nameref) ------------
+% In XeLaTeX + XePersian/bidi using xdvipdfmx, hyperlinks in RTL paragraphs that
+% break across lines cause geometry and color glitches in the generated PDF:
+% xdvipdfmx assumes Left-to-Right line progression, so when \special{pdf:bann}
+% and \special{pdf:eann} are split across lines, the driver generates bounding 
+% boxes spanning the entire margin-to-margin width of both lines and turns all 
+% text on both lines blue.
+%
+% Wrapping both \ref and \nameref in an \mbox ensures that referenced numbers
+% (e.g., "۱-۲") and referenced titles (e.g., "روش‌شناسی پیشنهادی") never break
+% across lines. If they do not fit at the end of a line, XeLaTeX cleanly pushes
+% the entire unit to the next line, keeping hyperlink bounding boxes and link 
+% colors strictly confined to the referenced content.
+\makeatletter
+\AtBeginDocument{%
+  % Prevent reference numbers from breaking across lines (avoids dvipdfmx bann/eann link collision)
+  \let\template@orig@ref\ref
+  \renewcommand{\ref}[1]{\mbox{\template@orig@ref{#1}}}%
+  % Prevent referenced heading titles (\nameref / \nameref*) from breaking across lines
+  \@ifundefined{T@nameref}{}{%
+    \let\template@orig@T@nameref\T@nameref
+    \def\T@nameref#1{\mbox{\template@orig@T@nameref{#1}}}%
+  }%
+  \@ifundefined{@namerefstar}{}{%
+    \let\template@orig@@namerefstar\@namerefstar
+    \def\@namerefstar#1{\mbox{\template@orig@@namerefstar{#1}}}%
+  }%
+}
 \makeatother
 
 % -------------------- Environments --------------------
