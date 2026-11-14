@@ -33,8 +33,8 @@
 - [Repository Architecture](#-repository-architecture)
 - [Original vs. Upgraded Template](#%EF%B8%8F-original-vs-upgraded-template)
   - [Comparison Table](#comparison-table)
-  - [Detailed Breakdown of Upgrades](#detailed-breakdown-of-upgrades)
-- [Key Features](#-key-features)
+  - [Breakdown of Smaller Upgrades](#breakdown-of-smaller-upgrades)
+- [Key Features](#%EF%B8%8F-key-features)
   - [1. Decoupled Core Engine vs. User Layer](#1-decoupled-core-engine-vs-user-layer)
   - [2. Elastic-Spaced Title Pages & Committee Architecture](#2-elastic-spaced-title-pages--committee-architecture)
   - [3. Automated Bidirectional Glossary Pipeline](#3-automated-bidirectional-glossary-pipeline)
@@ -44,7 +44,7 @@
   - [7. Multilingual Typography & Font Integration](#7-multilingual-typography--font-integration)
   - [8. Custom Visual Elements: Grayscale Academic Boxes](#8-custom-visual-elements-grayscale-academic-boxes)
   - [9. Zero-Warning Diagnostics & ChkTeX Cleanliness](#9-zero-warning-diagnostics--chktex-cleanliness)
-- [Customization Guide](#-customization-guide)
+- [Customization Guide](#%EF%B8%8F-customization-guide)
   - [Setting Thesis Metadata (`frontmatter/info.tex`)](#setting-thesis-metadata-frontmatterinfotex)
   - [User Overrides (`styles/custom.tex`)](#user-overrides-stylescustomtex)
   - [Writing Chapter Content](#writing-chapter-content)
@@ -229,7 +229,7 @@ This project builds directly upon the widely adopted Persian LaTeX Thesis Templa
 
 ---
 
-### Detailed Breakdown of Upgrades
+### Breakdown of Smaller Upgrades
 
 #### 1. Modernized TeX Syntax & Deprecated Package Cleanup
 - **Removal of Shadowing Packages:** The original template shipped local copies of `algorithm.sty`, `algorithmic.sty`, `algorithmicx.sty`, and `algpseudocode.sty` in `styles/packages/`. These files shadowed modern CTAN distributions, broke TeX Live updates, and lacked modern XePersian RTL algorithmic fixes (`algorithm-xetex-xepersian.def`). All obsolete local style files were purged in favor of official TeX Live / MiKTeX packages.
