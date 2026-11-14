@@ -27,8 +27,9 @@
 
 - [Overview & Philosophy](#-overview--philosophy)
 - [Quick Start & Compilation](#-quick-start--compilation)
-  - [Option A: VS Code with LaTeX Workshop (Recommended)](#option-a-vs-code-with-latex-workshop-recommended)
-  - [Option B: Command Line (latexmk)](#option-b-command-line-latexmk)
+  - [Option A: Online Compilers (Overleaf & Sharif LaTeX)](#option-a-online-compilers-overleaf--sharif-texready)
+  - [Option B: VS Code (LaTeX Workshop)](#option-b-vs-code-with-latex-workshop-recommended-for-local-editing)
+  - [Option C: Command Line (latexmk)](#option-c-command-line-latexmk)
 - [Repository Architecture](#-repository-architecture)
 - [Original vs. Upgraded Template (Detailed Comparison)](#-original-vs-upgraded-template-detailed-comparison)
   - [Comprehensive Comparison Matrix](#comprehensive-comparison-matrix)
@@ -62,7 +63,7 @@ This repository represents a **ground-up modernization and architectural re-engi
 
 ### 🇮🇷 درباره و معرفی قالب (به زبان فارسی)
 
-این مخزن شامل **نسخه بازطراحی‌شده و مدرن قالب پایان‌نامه لاتک دانشگاه صنعتی شریف** است. این قالب بر مبنای استانداردهای آموزشی دانشگاه صنعتی شریف برای تدوین **رساله دکتری**، **پایان‌نامه کارشناسی ارشد** و **پروژه کارشناسی** در تمامی رشته‌ها آماده‌سازی شده است. ساختار این قالب با جداسازی کامل موتور استایل و قلم‌ها از محتوای کاربر، برطرف‌سازی خطاهای رایج زی‌پرشین، اتوماتیک‌سازی جزئیات شرطی صفحات عنوان و فرم‌ها، همراه با پایپ‌لاین خودکار پایتون برای تولید واژه‌نامه‌های دوطرفه (فارسی به انگلیسی و انگلیسی به فارسی) و هماهنگی کامل با کامپایلر `latexmk` و نرم‌افزار VS Code، تجربه‌ای استاندارد و بدون اخطار را برای پژوهشگران فراهم می‌کند.
+این مخزن شامل **نسخه بازطراحی‌شده و مدرن قالب پایان‌نامه لاتک دانشگاه صنعتی شریف** است. این قالب بر مبنای استانداردهای آموزشی دانشگاه صنعتی شریف برای تدوین **رساله دکتری**، **پایان‌نامه کارشناسی ارشد** و **پروژه کارشناسی** در تمامی رشته‌ها آماده‌سازی شده است. ساختار این قالب با جداسازی کامل موتور استایل و قلم‌ها از محتوای کاربر، برطرف‌سازی خطاهای رایج زی‌پرشین، اتوماتیک‌سازی جزئیات شرطی صفحات عنوان و فرم‌ها، همراه با پایپ‌لاین خودکار برای ساخت و به‌روزرسانی واژه‌نامه‌های دوطرفه (فارسی به انگلیسی و انگلیسی به فارسی)، و سازگاری کامل با کامپایلرهای آنلاین (مانند [Overleaf](https://www.overleaf.com/) و سامانه [لاتک شریف](https://latex.sharif.ir/)) در کنار ویرایشگر VS Code و خط فرمان لاتک (`latexmk`)، تجربه‌ای استاندارد، روان و بدون اخطار (Zero-Warning) را برای پژوهشگران فراهم می‌کند (تنها با تنظیم موتور کامپایلر روی XeLaTeX).
 
 > [!NOTE]
 > **Built-in Dual-Purpose Writing & Technical Guide:**
@@ -76,9 +77,29 @@ This repository represents a **ground-up modernization and architectural re-engi
 
 ## 🚀 Quick Start & Compilation
 
-This template requires **XeLaTeX** (required for `xepersian` and bidirectional TrueType/OpenType font loading), **BibTeX**, and optionally **Python 3** (for the automated glossary compiler).
+This template is engineered to compile seamlessly across both **online cloud compilers** and **local desktop environments**. The only universal requirement is choosing **XeLaTeX** as the compiler engine (strictly required by `xepersian` for bidirectional TrueType/OpenType font loading).
 
-### Option A: VS Code with LaTeX Workshop (Recommended)
+You can clone the repository through the "Use this template" button or download the `.zip` from "Releases" or "Code > Download ZIP". After downloading, proceed with one of the options below:
+
+### Option A: Online Compilers (Overleaf & Sharif LaTeX)
+
+The template has been thoroughly verified on leading online LaTeX platforms, compiling cleanly with **zero errors**. Furthermore, the automated bidirectional dictionary and technical glossary compile and update properly without manual sorting.
+
+- **[Overleaf](https://www.overleaf.com/):**
+  1. Click **New Project** → **Upload Project** and select the template `.zip` file.
+  2. Open the project, click the **Menu** button (top-left corner), and change **Compiler** to **XeLaTeX**.
+  3. Ensure the **Main document** is set to `thesis.tex`.
+  4. Click **Recompile**.
+- **[Sharif LaTeX](https://latex.sharif.ir/):**
+  1. Log in to [Sharif LaTeX](https://latex.sharif.ir/) (سامانه نگارش آنلاین مقالات و پایان‌نامه‌های دانشگاه صنعتی شریف).
+  2. Create a new project by uploading the template `.zip` file.
+  3. In project settings, ensure the compiler engine is set to **XeLaTeX** and the main document is `thesis.tex`.
+  4. Click **Recompile**.
+
+> [!TIP]
+> Overleaf and Sharif provide built-in `latexmk` and Python execution, meaning `scripts/build_dictionaries.py` automatically runs whenever `backmatter/words.tex` is edited and saved. Pre-compiled fallback dictionary files are also bundled in `backmatter/` to ensure instant, zero-friction compilation.
+
+### Option B: VS Code (LaTeX Workshop)
 
 1. Install Visual Studio Code and the official **LaTeX Workshop** extension.
 2. Open this repository folder in VS Code.
@@ -89,7 +110,7 @@ This template requires **XeLaTeX** (required for `xepersian` and bidirectional T
    - Pinned root document (`thesis.tex`).
    - Custom `chktex` linting flags tailored for the document.
 
-### Option B: Command Line (`latexmk`)
+### Option C: Command Line (`latexmk`)
 
 Run the pre-configured `latexmk` pipeline:
 
@@ -100,8 +121,8 @@ latexmk -xelatex -synctex=1 -interaction=nonstopmode thesis.tex
 To clean compilation auxiliary files:
 
 ```bash
-latexmk -c thesis.tex    # Cleans auxiliary files (.aux, .log, .fls, .out, etc.)
-latexmk -C thesis.tex    # Cleans auxiliary files and the compiled thesis.pdf
+latexmk -c thesis.tex   # Cleans auxiliary files (.aux, .log, .fls, .out, etc.)
+latexmk -C thesis.tex   # Cleans auxiliary files and the compiled thesis.pdf
 ```
 
 ---
@@ -187,11 +208,13 @@ This project builds directly upon the widely adopted Persian LaTeX Thesis Templa
 | **Directory Organization** | Flat legacy directories (`bibs`, `figs`, `front`, `styles`, `chapters`). | Semantic academic hierarchy (`frontmatter`, `backmatter`, `bibliography`, `chapters`, `appendices`, `styles`, `scripts`). |
 | **Glossary / Technical Dictionary** | Static, Persian-to-English only; manually typed and grouped in `front/dictionary.tex`. | **Automated Bidirectional System** (`words.tex`): Python compiles both `fa2en` and `en2fa` with 32-letter Persian Unicode collation. |
 | **Build Automation** | Standard manual TeX compilation commands. | **`latexmkrc` Automation**: Pre-compilation hooks trigger Python dictionary builds; targets PDF 1.7 vector standard. |
+| **Platform Compatibility** | Fragile; prone to errors on local environments due to deprecated packages or Persian commands. | **Universal Compatibility**: Verified with 0 errors across online compilers ([Overleaf](https://www.overleaf.com/), [Sharif LaTeX](https://latex.sharif.ir/)), VS Code, and terminal CLI; dictionaries update automatically. |
 | **Administrative Forms** | Static LaTeX stubs; hardcoded committee fields; missing header titles. | **Dynamic Forms**: Auto-populated from metadata, conditional advisor/examiner logic, dedicated signing titles/dates. |
 | **Form Printing / Export** | Required compiling the whole thesis to print individual administrative forms. | **Standalone Exporter (`scripts/export_front_pages.py`)**: One-command single-page PDF generation for signatures & declaration. |
 | **Signed Forms Integration** | Manual manipulation of pages; prone to margins and geometry distortion. | **Zero-Margin Scanned PDF Inclusion (`\includepdfpages`)**: Native TikZ overlay engine without `pdfpages` XePersian bugs. |
 | **Latin Typography** | Default fallback / Times New Roman; no dedicated Latin font family. | Full **Adobe Caslon Pro** font family (Regular, Bold, Italic, Bold Italic) integrated seamlessly with XB Niloofar. |
 | **Section & Figure Numbering** | Raw hyphen separator (`\SepMark{-}`); causes cramped numbers and font-break glyph bugs. | **Balanced En-Dash Separator (`\SepMark{\,-\,}`)**: Symmetrically spaced with thin non-breaking math spaces. |
+| **Non-Breaking RTL Links (`\ref` & `\nameref`)** | Unprotected; when a reference number or title wraps across lines in RTL, `xdvipdfmx` glitches, turning the whole line into a blue clickable link. | **Automatic Non-Breaking Wrappers**: Globally guards both `\ref` and `\nameref` in `\mbox`, ensuring links and blue coloring stay strictly on the referenced words without whole-line bleeding. |
 | **Footnotes Layout** | Standard single-column footnotes with excessive vertical whitespace. | **Two-Column Footnotes (`\twocolumnfootnotes`)** with optimized vertical clearance (`\skip\footins=1cm`). |
 | **Bibliography Hyperlinks** | Plain text citations; standard `unsrtabbrv.bst`. | **Interactive BibTeX Engine (`unsrtabbrv-modern.bst`)**: Auto-resolves `doi`, `url`, and `eprint` into clickable paper title hyperlinks. |
 | **Bibliography Formatting** | Loose spacing; cluttered with editors, publisher addresses, and 50+ author lists. | **Compact Academic Styling**: Compact line spacing; truncated author lists (>10 to 6 + *et al.*); noise fields suppressed. |
@@ -222,6 +245,10 @@ This project builds directly upon the widely adopted Persian LaTeX Thesis Templa
 - **Persian Abstract Header:** Formal centered header `{\Large\textbf{چکیده}}` with parameterized spacing glues (`\thesisabstractbeforespace`).
 - **Keyword Formatting:** Unified macro with bold headers, italicized keyword bodies (`\textit{#1}`), and `\nopagebreak` protection preventing awkward page breaks between abstract text and keywords.
 
+#### 4. Non-Breaking RTL Hyperlink Architecture (`\ref` & `\nameref`)
+- **The Issue in the Original Template:** In XeLaTeX and XePersian using `xdvipdfmx`, when an RTL hyperlink splits across a line break, the driver's Left-to-Right bounding box calculations fail. This causes the clickable area to span from margin to margin and bleeds the blue link color across both entire lines. The original template provided no defense against this, resulting in whole lines turning blue whenever a reference number or chapter/section name broke across lines.
+- **The Upgraded Solution:** The upgraded template installs global `\AtBeginDocument` hooks for both `\ref{...}` and `\nameref{...}` (including `\nameref*{...}`), wrapping them in an `\mbox`. This guarantees that reference numbers (e.g., `۱-۲`) and referenced titles (e.g., `روش‌شناسی پیشنهادی`) are treated as atomic units by TeX's paragraph breaker. If an entry cannot fit on the current line, XeLaTeX cleanly breaks the line *before* the reference, keeping the hyperlink bounding box and blue color strictly and accurately on the target words.
+
 ---
 
 ## 🛠️ Key Features & Advanced Automation
@@ -249,7 +276,7 @@ The bundled Python compiler (`scripts/build_dictionaries.py`):
 3. **Generates Dual Outputs:** Builds both `backmatter/dict_fa2en_content.tex` (Persian-to-English) and `backmatter/dict_en2fa_content.tex` (English-to-Persian) with automatic alphabetical header blocks (`\dicalphabet{...}`).
 4. **Intelligent Line-Wrapping:** Dynamically measures the combined width of the Persian term and English equivalent. If they exceed the column width, it automatically wraps across two lines with balanced dot-fills (`\dotfill`), preventing overflow.
 5. **Orphan Header Protection:** Employs `\dicneedspace{4.5\baselineskip}` to ensure alphabet headings are never stranded at the bottom of a column.
-6. **Automatic Build Hook:** Triggered automatically via `latexmkrc` every time you compile the document. Pre-compiled fallbacks are bundled so compilation never fails on systems lacking Python.
+6. **Automatic Build Hook:** Triggered automatically via `latexmkrc` every time you compile the document (supported out of the box in local `latexmk`, VS Code, and online platforms such as Overleaf). Pre-compiled fallbacks are also bundled in `backmatter/` so compilation never fails on any system or platform lacking Python.
 
 ### 3. Dynamic Administrative Forms & Standalone PDF Exporter
 
@@ -322,7 +349,7 @@ The box features a subtle light background, dark frame, centered title pill, and
 
 - **PDF 1.7 Minor Version Targeting:** Solves `xdvipdfmx` warnings (`PDF minor version mismatch`) when embedding modern vector graphics via `\special{pdf:minorversion 7}` and `xdvipdfmx -V 7`.
 - **Hyperref Anchor Collision Elimination:** Front and back matter pages use `\hypersetup{pageanchor=false}` while main chapters re-enable it (`pageanchor=true`), completely eliminating `Object @page.1 already defined` collisions.
-- **RTL Hyperlink Line-Break Protection:** Re-wraps `\ref{...}` in `\mbox{...}` to prevent dvipdfmx `bann/eann` hyperlink box split errors across bidirectional line wraps.
+- **RTL Hyperlink Line-Break Protection:** Globally wraps both `\ref{...}` and `\nameref{...}` in `\mbox{...}` to eliminate `xdvipdfmx` `bann/eann` coordinate mismatch errors, preventing the notorious RTL glitch where breaking across lines turns the whole line into a blue clickable link.
 - **NFSS Silent Substitutions:** Bold typewriter font substitution warnings (`TU/lmtt/bx/n`) are silenced via proper NFSS substitutions (`ssub`).
 - **ChkTeX Compliance:** Verified with 0 warnings under the production `.vscode/settings.json` configuration.
 
@@ -418,11 +445,15 @@ For researchers and developers seeking a deeper understanding of the template's 
 
 ## ❓ Frequently Asked Questions (FAQ)
 
-### Q: Which TeX distribution and compiler engine should I use?
-**A:** Use **TeX Live** (2020 or newer on Linux/Windows), **MacTeX** (on macOS), or **MiKTeX** (on Windows). The compilation engine **must be XeLaTeX** (via `latexmk` or `xelatex`) due to `xepersian` and bidirectional TrueType/OpenType font loading requirements. Standard `pdflatex` or `lualatex` will not compile Persian documents with XePersian.
+### Q: Which TeX distribution or online platform should I use?
+**A:** You can freely choose between **online cloud compilers** and **local desktop distributions**:
+- **Online LaTeX Compilers:** The template compiles with **zero errors** out of the box on **[Overleaf](https://www.overleaf.com/)** and **[Sharif LaTeX](https://latex.sharif.ir/)**. Just set the compiler engine to **XeLaTeX** in the project settings.
+- **Local Distributions:** Use **TeX Live** (2020 or newer on Linux/Windows), **MacTeX** (on macOS), or **MiKTeX** (on Windows) using **VS Code** (with the LaTeX Workshop extension) or the command line (`latexmk`).
+
+Across all platforms and distributions, the compilation engine **must be XeLaTeX** (not `pdflatex` or `lualatex`), which is required by `xepersian` for bidirectional TrueType/OpenType font loading.
 
 ### Q: How does the automated glossary compiler work, and what if Python is not installed?
-**A:** When you compile using `latexmk`, the pre-build hook in `latexmkrc` automatically executes `scripts/build_dictionaries.py` to regenerate sorted, grouped dictionary files whenever `backmatter/words.tex` is edited. If Python is not installed on your system, the compilation still succeeds using the pre-compiled fallback files bundled in `backmatter/`.
+**A:** When you compile using `latexmk` (in local environments or cloud compilers such as Overleaf), the pre-build hook in `latexmkrc` automatically executes `scripts/build_dictionaries.py` to regenerate sorted, grouped dictionary files whenever `backmatter/words.tex` is edited. On platforms where Python is unavailable or if Python is not installed locally, compilation still succeeds seamlessly using the pre-compiled fallback files bundled in `backmatter/`.
 
 ### Q: How do I export or print just the administrative signature form (تصویب‌نامه) before my defense?
 **A:** You do not need to print the entire thesis or manually crop pages. Simply run:
@@ -452,8 +483,8 @@ This instantly compiles and outputs a crisp, standalone single-page `signatures.
 \twocolumnfootnotes
 ```
 
-### Q: Do I need to install the fonts in Windows/macOS/Linux?
-**A:** No. All fonts (XB Niloofar, Sharif Font, and Adobe Caslon Pro) are located directly inside `styles/fonts/`. XeTeX is configured to resolve font files directly from that directory without requiring system-wide installation or administrative privileges.
+### Q: Do I need to install the fonts locally or on online compilers?
+**A:** No. All fonts (XB Niloofar, Sharif Font, and Adobe Caslon Pro) are located directly inside `styles/fonts/`. XeTeX is configured to resolve font files directly from that directory without requiring system-wide installation, administrative privileges, or server-side font configuration on online compilers like Overleaf or Sharif LaTeX.
 
 ---
 
