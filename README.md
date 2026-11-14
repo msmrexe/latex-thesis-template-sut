@@ -25,37 +25,38 @@
 
 ## 📖 Table of Contents
 
-- [Overview & Philosophy](#-overview--philosophy)
-- [Quick Start & Compilation](#-quick-start--compilation)
-  - [Option A: Online Compilers (Overleaf & Sharif LaTeX)](#option-a-online-compilers-overleaf--sharif-texready)
-  - [Option B: VS Code (LaTeX Workshop)](#option-b-vs-code-with-latex-workshop-recommended-for-local-editing)
+- [Overview](#-overview)
+- [Start Compiling](#-start-compiling)
+  - [Option A: Online Compilers (Overleaf & Sharif LaTeX)](#option-a-online-compilers-overleaf--sharif-latex)
+  - [Option B: VS Code (LaTeX Workshop)](#option-b-vs-code-latex-workshop)
   - [Option C: Command Line (latexmk)](#option-c-command-line-latexmk)
 - [Repository Architecture](#-repository-architecture)
-- [Original vs. Upgraded Template (Detailed Comparison)](#-original-vs-upgraded-template-detailed-comparison)
-  - [Comprehensive Comparison Matrix](#comprehensive-comparison-matrix)
-  - [Detailed Breakdown of Upgrades & Enhancements](#detailed-breakdown-of-upgrades--enhancements)
-- [Key Features & Advanced Automation](#-key-features--advanced-automation)
+- [Original vs. Upgraded Template](#%EF%B8%8F-original-vs-upgraded-template)
+  - [Comparison Table](#comparison-table)
+  - [Detailed Breakdown of Upgrades](#detailed-breakdown-of-upgrades)
+- [Key Features](#-key-features)
   - [1. Decoupled Core Engine vs. User Layer](#1-decoupled-core-engine-vs-user-layer)
-  - [2. Automated Bidirectional Technical Glossary Pipeline](#2-automated-bidirectional-technical-glossary-pipeline)
-  - [3. Dynamic Administrative Forms & Standalone PDF Exporter](#3-dynamic-administrative-forms--standalone-pdf-exporter)
-  - [4. Seamless Scanned Signed Forms Integration](#4-seamless-scanned-signed-forms-integration)
-  - [5. Interactive Hyperlinked Bibliography (DOI / URL Resolver)](#5-interactive-hyperlinked-bibliography-doi--url-resolver)
-  - [6. Sophisticated Multilingual Typography & Font Integration](#6-sophisticated-multilingual-typography--font-integration)
-  - [7. Custom Visual Elements: Grayscale Academic Boxes](#7-custom-visual-elements-grayscale-academic-boxes)
-  - [8. Zero-Warning Diagnostics & Strict ChkTeX Cleanliness](#8-zero-warning-diagnostics--strict-chktex-cleanliness)
-- [Customization & Workflow Guide](#-customization--workflow-guide)
+  - [2. Elastic-Spaced Title Pages & Committee Architecture](#2-elastic-spaced-title-pages--committee-architecture)
+  - [3. Automated Bidirectional Glossary Pipeline](#3-automated-bidirectional-glossary-pipeline)
+  - [4. Automated Administrative Forms & Standalone PDF Exporter](#4-automated-administrative-forms--standalone-pdf-exporter)
+  - [5. Scanned Signed Forms Integration](#5-scanned-signed-forms-integration)
+  - [6. Structured & Hyperlinked Bibliography](#6-structured--hyperlinked-bibliography)
+  - [7. Multilingual Typography & Font Integration](#7-multilingual-typography--font-integration)
+  - [8. Custom Visual Elements: Grayscale Academic Boxes](#8-custom-visual-elements-grayscale-academic-boxes)
+  - [9. Zero-Warning Diagnostics & ChkTeX Cleanliness](#9-zero-warning-diagnostics--chktex-cleanliness)
+- [Customization Guide](#-customization-guide)
   - [Setting Thesis Metadata (`frontmatter/info.tex`)](#setting-thesis-metadata-frontmatterinfotex)
-  - [User Overrides & Notation (`styles/custom.tex`)](#user-overrides--notation-stylescustomtex)
-  - [Writing Chapter Content & Semantic Labeling](#writing-chapter-content--semantic-labeling)
+  - [User Overrides (`styles/custom.tex`)](#user-overrides-stylescustomtex)
+  - [Writing Chapter Content](#writing-chapter-content)
   - [Vector Figures & TikZ Diagrams](#vector-figures--tikz-diagrams)
 - [Comprehensive Technical Appendices](#-comprehensive-technical-appendices)
 - [Frequently Asked Questions (FAQ)](#-frequently-asked-questions-faq)
-- [Credits & Provenance](#-credits--provenance)
+- [Credits](#-credits)
 - [License](#-license)
 
 ---
 
-## 💡 Overview & Philosophy
+## 💡 Overview
 
 Academic typesetting in Persian has historically presented significant friction for graduate researchers. Common pitfalls include fragile styling, cryptic errors, font issues in title numbering, hyperref anchor collisions, unformatted bidirectional inline code snippets, and manual, error-prone compilation of English-Persian glossaries.
 
@@ -75,7 +76,7 @@ This repository represents a **ground-up modernization and architectural re-engi
 
 ---
 
-## 🚀 Quick Start & Compilation
+## 🚀 Start Compiling
 
 This template is engineered to compile seamlessly across both **online cloud compilers** and **local desktop environments**. The only universal requirement is choosing **XeLaTeX** as the compiler engine (strictly required by `xepersian` for bidirectional TrueType/OpenType font loading).
 
@@ -196,11 +197,11 @@ The repository enforces strict separation between internal style engines, user c
 
 ---
 
-## ⚖️ Original vs. Upgraded Template (Detailed Comparison)
+## ⚖️ Original vs. Upgraded Template
 
 This project builds directly upon the widely adopted Persian LaTeX Thesis Template created by **Hamid Zarrabi-Zadeh** (`zarrabi/thesis-template`). The table below outlines the structural, typographic, and automated differences between the original template and this upgraded edition.
 
-### Comprehensive Comparison Matrix
+### Comparison Table
 
 | Feature / Dimension | Original Template (`zarrabi/thesis-template`) | Upgraded Modern Template (This Repository) |
 | :--- | :--- | :--- |
@@ -228,7 +229,7 @@ This project builds directly upon the widely adopted Persian LaTeX Thesis Templa
 
 ---
 
-### Detailed Breakdown of Upgrades & Enhancements
+### Detailed Breakdown of Upgrades
 
 #### 1. Modernized TeX Syntax & Deprecated Package Cleanup
 - **Removal of Shadowing Packages:** The original template shipped local copies of `algorithm.sty`, `algorithmic.sty`, `algorithmicx.sty`, and `algpseudocode.sty` in `styles/packages/`. These files shadowed modern CTAN distributions, broke TeX Live updates, and lacked modern XePersian RTL algorithmic fixes (`algorithm-xetex-xepersian.def`). All obsolete local style files were purged in favor of official TeX Live / MiKTeX packages.
@@ -251,7 +252,7 @@ This project builds directly upon the widely adopted Persian LaTeX Thesis Templa
 
 ---
 
-## 🛠️ Key Features & Advanced Automation
+## 🛠️ Key Features
 
 ### 1. Decoupled Core Engine vs. User Layer
 
@@ -259,7 +260,23 @@ The template strictly adheres to the **Open/Closed Principle**:
 - **`styles/common.tex` (Core Engine):** Contains package initialization, PDF version targeting, bidirectional font declarations, footnote engine, theorem definitions, dynamic metadata evaluators, and dictionary formatting. *End users never need to modify this file.*
 - **`styles/custom.tex` (User Layer):** Dedicated user space where you can define custom math operators (`\OPT`, `\APX`, `\argmax`), adjust layout springs, configure callout boxes, and import additional packages (e.g., `tikz`, `pgfplots`).
 
-### 2. Automated Bidirectional Technical Glossary Pipeline
+### 2. Elastic-Spaced Title Pages & Committee Architecture
+
+The title pages—both the Persian front cover (`frontmatter/title.tex`) and English reverse cover (`backmatter/title_en.tex`)—are powered by an automated layout and committee management engine:
+
+- **Elastic Spring Layout (`fill` glues):** Instead of static vertical spacing that requires manual tweaking or causes accidental overflows onto a second page when thesis titles or committee lists expand, the title pages employ parameterized vertical springs (`\thesistitlebefore...` and `\thesistitleenbefore...`). Vertical whitespace expands or contracts proportionally across standard A4 bounds, guaranteeing an elegant, single-page presentation whether your title is one line or three lines long.
+- **Multiple Advisors & Examiners Support:** Academic committees vary across Bachelor's, Master's, and Ph.D. degrees. The template provides out-of-the-box support for:
+  - **Advisors:** Supports single (`\ThesisAdvisor`) or multiple co-advisors (`\ThesisSecondAdvisor`, `\ThesisAdvisors`).
+  - **Examiners:** Supports internal examiner (`\ThesisExaminer`), external examiner (`\ThesisSecondExaminer`), and third examiner (`\ThesisThirdExaminer` / `\ThesisExaminers`) for Ph.D. dissertations and multi-examiner panels.
+- **Smart Conditional Rendering:** If no advisors or examiners are specified in `frontmatter/info.tex`, their entire visual section (headers, names, and vertical gaps) is omitted cleanly without leaving blank gaps or requiring manual commenting.
+- **Automatic Grammatical Header Pluralization:** The template dynamically selects singular or plural labels depending on the count of defined committee members:
+  - Persian: `استاد مشاور` vs. `اساتید مشاور` and `استاد ممتحن` vs. `اساتید ممتحن`.
+  - English: `Advisor` vs. `Advisors` and `Examiner` vs. `Examiners`.
+  - Custom header overrides (`\ThesisAdvisorTitle`, `\ThesisExaminerTitle`) are also available if your department requires specific titles (e.g., `کمیته داوری` یا `هیئت داوران`).
+- **Synchronized Bilingual Layouts:** All title page content originates from the centralized single source of truth in `frontmatter/info.tex`, ensuring perfect synchronization between the Persian cover and English reverse cover.
+- **User-Tunable Layout Springs:** If needed, spring weights and the university logo scale (`\ThesisLogoScale`) can be fine-tuned directly in Section 3A of `styles/custom.tex`.
+
+### 3. Automated Bidirectional Glossary Pipeline
 
 Instead of maintaining two separate, manually sorted glossaries, you define your terms once in `backmatter/words.tex`:
 
@@ -278,11 +295,11 @@ The bundled Python compiler (`scripts/build_dictionaries.py`):
 5. **Orphan Header Protection:** Employs `\dicneedspace{4.5\baselineskip}` to ensure alphabet headings are never stranded at the bottom of a column.
 6. **Automatic Build Hook:** Triggered automatically via `latexmkrc` every time you compile the document (supported out of the box in local `latexmk`, VS Code, and online platforms such as Overleaf). Pre-compiled fallbacks are also bundled in `backmatter/` so compilation never fails on any system or platform lacking Python.
 
-### 3. Dynamic Administrative Forms & Standalone PDF Exporter
+### 4. Automated Administrative Forms & Standalone PDF Exporter
 
 Sharif University requires official administrative pages: the **Examination Committee Approval (تصویب‌نامه)** and the **Academic Integrity Declaration (اظهارنامه)**.
 
-- **Dynamic Conditional Evaluation:** In `frontmatter/info.tex`, define your committee. The template automatically adjusts headers from singular to plural (e.g., `استاد مشاور` vs. `اساتید مشاور`, `Examiner` vs. `Examiners`), and handles internal, external, and third examiners seamlessly.
+- **Dynamic Committee Table Generation:** Committee metadata from `frontmatter/info.tex` automatically populates the signature table in `signatures.tex`, dynamically adapting rows for supervisors, advisors, and examiners.
 - **Dedicated Signing Titles:** Long thesis titles often require manual line breaks (`\\`) on the title page, but must flow as continuous paragraphs on administrative forms. The template provides `\ThesisSignTitle` (with automatic fallback to `\ThesisTitle`) and `\ThesisSignDate`.
 - **Standalone Form Exporter:** Generate standalone, single-page PDFs of official forms to print or email to professors:
   ```bash
@@ -295,7 +312,7 @@ Sharif University requires official administrative pages: the **Examination Comm
   .\scripts\export_front_pages.ps1 signatures
   ```
 
-### 4. Seamless Scanned Signed Forms Integration
+### 5. Scanned Signed Forms Integration
 
 Once the defense committee signs your physical or digital forms:
 1. Save the scanned PDFs as `frontmatter/signatures.pdf` and `frontmatter/declaration.pdf`.
@@ -314,7 +331,7 @@ Once the defense committee signs your physical or digital forms:
 > **Why `\includepdfpages` instead of `\usepackage{pdfpages}`?**
 > Standard `pdfpages` conflicts with XePersian's bidirectional shipout hooks, often causing inverted page orientation, corrupted page numbers, and undefined control sequence errors. Our native engine uses zero-margin TikZ overlays and `\XeTeXpdfpagecount` to inject single- or multi-page PDFs with 100% geometric fidelity.
 
-### 5. Interactive Hyperlinked Bibliography (DOI / URL Resolver)
+### 6. Structured & Hyperlinked Bibliography
 
 The bibliography style in `bibliography/unsrtabbrv-modern.bst` was overhauled:
 - **Clickable Paper Titles:** Whenever an entry contains a `doi` or `url` field, the title of the article or book is transformed into a direct, clickable hyperlink pointing to `https://doi.org/...` or the provided URL.
@@ -323,7 +340,7 @@ The bibliography style in `bibliography/unsrtabbrv-modern.bst` was overhauled:
 - **Noise Suppression:** Irrelevant legacy fields (such as city/address and proceedings editors) are silenced to adhere to clean, modern computer science and engineering citation standards.
 - **Compact Layout:** Redefined `thebibliography` environment with `\linespread{1.15}`, `parskip=0pt`, and tight item separation (`0.25em`).
 
-### 6. Sophisticated Multilingual Typography & Font Integration
+### 7. Multilingual Typography & Font Integration
 
 - **Bundled Font System:** All necessary fonts are bundled in `styles/fonts/`:
   - **Persian Text & Numerals:** XB Niloofar (Regular, Bold, Italic, Bold Italic).
@@ -333,7 +350,7 @@ The bibliography style in `bibliography/unsrtabbrv-modern.bst` was overhauled:
 - **Two-Column Footnotes with Single-Column Toggle:** Enabled by default via `\twocolumnfootnotes` with an adjusted vertical clearance gap (`\setlength{\skip\footins}{1cm}`) and bidirectional footnote management (`\enfootnote{...}`), eliminating awkward page gaps on pages with numerous citations or technical terms. For pages containing long narrative footnotes or an isolated footnote that would look sparse in a narrow half-column, you can seamlessly switch to full-width single-column footnotes using `\normalfootnotes` (and restore two columns with `\twocolumnfootnotes`).
 - **Bidi-Safe Monospace Code (`\code{...}`):** Typesetting code snippets or file paths in Persian text using standard `\texttt` causes XePersian's RTL engine to invert punctuation, slashes, and dashes. The custom `\code{...}` macro wraps content in `\lr{\texttt{...}}`, guaranteeing strict Left-to-Right orientation.
 
-### 7. Custom Visual Elements: Grayscale Academic Boxes
+### 8. Custom Visual Elements: Grayscale Academic Boxes
 
 Includes a formal, print-friendly academic callout box built with `tcolorbox`:
 
@@ -345,7 +362,7 @@ Includes a formal, print-friendly academic callout box built with `tcolorbox`:
 
 The box features a subtle light background, dark frame, centered title pill, and breakable geometry across page boundaries.
 
-### 8. Zero-Warning Diagnostics & Strict ChkTeX Cleanliness
+### 9. Zero-Warning Diagnostics & ChkTeX Cleanliness
 
 - **PDF 1.7 Minor Version Targeting:** Solves `xdvipdfmx` warnings (`PDF minor version mismatch`) when embedding modern vector graphics via `\special{pdf:minorversion 7}` and `xdvipdfmx -V 7`.
 - **Hyperref Anchor Collision Elimination:** Front and back matter pages use `\hypersetup{pageanchor=false}` while main chapters re-enable it (`pageanchor=true`), completely eliminating `Object @page.1 already defined` collisions.
@@ -355,7 +372,7 @@ The box features a subtle light background, dark frame, centered title pill, and
 
 ---
 
-## ⚙️ Customization & Workflow Guide
+## ⚙️ Customization Guide
 
 ### Setting Thesis Metadata (`frontmatter/info.tex`)
 
@@ -391,7 +408,7 @@ Rather than duplicating information across different templates, you define each 
 > [!TIP]
 > For a comprehensive technical walkthrough of how these variables interact with conditional evaluators (`\ifthesisfieldTF`, `\ifthesisadvisors`, `\ifthesisexaminers`) and elastic glues, refer to the full documentation in [appendices/appendix_title_and_forms.tex](/appendices/appendix_title_and_forms.tex). To view the complete source definitions, inspect [frontmatter/info.tex](/frontmatter/info.tex).
 
-### User Overrides & Notation (`styles/custom.tex`)
+### User Overrides (`styles/custom.tex`)
 
 - **Custom Math Macros:** Add your mathematical operators in Section 1:
   ```latex
@@ -405,7 +422,7 @@ Rather than duplicating information across different templates, you define each 
   \setlength{\lightrulewidth}{0.5pt}   % \midrule
   ```
 
-### Writing Chapter Content & Semantic Labeling
+### Writing Chapter Content
 
 Place individual chapters in `chapters/` (e.g., `chapters/chapter1_introduction.tex`). The sample chapters illustrate standard academic conventions:
 - **Citations:** Always prepend citations with a non-breaking space: `مطابق با روش‌های پیشین~\cite{sample_article}`.
@@ -488,7 +505,7 @@ This instantly compiles and outputs a crisp, standalone single-page `signatures.
 
 ---
 
-## 📜 Credits & Provenance
+## 📜 Credits
 
 ### Original Foundation
 This repository is built upon the classic **Persian LaTeX Thesis Template** originally created by **[Dr. Hamid Zarrabi-Zadeh](https://github.com/zarrabi)** ([GitHub Repository](https://github.com/zarrabi/thesis-template)), with contributions from Ehsan Emamjomeh-Zadeh and Omid Gheibi at Sharif University of Technology. Their pioneering work established the foundational formatting standard for Persian thesis typesetting.
